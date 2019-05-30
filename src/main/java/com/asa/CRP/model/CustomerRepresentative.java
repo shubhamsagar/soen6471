@@ -30,7 +30,7 @@ public class CustomerRepresentative implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name="id", unique = true)
-	private String id;
+	private int id;
 	
 	/** The cr first name. */
 	@Column(name="First_Name", length = 50)
@@ -57,7 +57,7 @@ public class CustomerRepresentative implements Serializable{
 	 *
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	
@@ -66,7 +66,7 @@ public class CustomerRepresentative implements Serializable{
 	 *
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

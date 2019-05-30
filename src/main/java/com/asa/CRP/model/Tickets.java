@@ -30,7 +30,7 @@ public class Tickets implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name="ticketId", length=10, unique = true)
-	private String ticketId;
+	private int ticketId;
 	
 	
 	/** The date. */
@@ -61,7 +61,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @return the ticketId
 	 */
-	public String getTicketId() {
+	public int getTicketId() {
 		return ticketId;
 	}
 
@@ -70,7 +70,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @param ticketId the ticketId to set
 	 */
-	public void setTicketId(String ticketId) {
+	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
 	}
 

@@ -28,7 +28,7 @@ public class Customer implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name="custId", length=10, unique = true)
-	private String custId;
+	private int custId;
 	
 	/** The phone number. */
 	@Column(name="phone", length=10, unique = true)
@@ -55,15 +55,15 @@ public class Customer implements Serializable{
 	private String custPlan;
 	
 	/** The ticket raised. */
-	@Column(name="ticketRaised", length = 200)
-	private String ticketRaised;
+	@Column(name="ticketsRaised", length = 200)
+	private int ticketsRaised;
 
 	/**
 	 * Gets the cust id.
 	 *
 	 * @return the custId
 	 */
-	public String getCustId() {
+	public int getCustId() {
 		return custId;
 	}
 
@@ -72,7 +72,7 @@ public class Customer implements Serializable{
 	 *
 	 * @param custId the custId to set
 	 */
-	public void setCustId(String custId) {
+	public void setCustId(int custId) {
 		this.custId = custId;
 	}
 
@@ -189,8 +189,8 @@ public class Customer implements Serializable{
 	 *
 	 * @return the ticketRaised
 	 */
-	public String getTicketRaised() {
-		return ticketRaised;
+	public int getTicketRaised() {
+		return ticketsRaised;
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class Customer implements Serializable{
 	 *
 	 * @param ticketRaised the ticketRaised to set
 	 */
-	public void setTicketRaised(String ticketRaised) {
-		this.ticketRaised = ticketRaised;
+	public void setTicketRaised(int ticketRaised) {
+		this.ticketsRaised = ticketRaised;
 	}
 }

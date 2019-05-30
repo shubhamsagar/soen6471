@@ -26,12 +26,15 @@ public class Plans implements Serializable{
 	private static final long serialVersionUID = -6279182730809596623L;
 
 
-	/** The plan name. */
+	/** The plan ID. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name="planID", length=10, unique = true)
+	private int planID;
+
+	/** The plan name. */
 	@Column(name="planName", length=10, unique = true)
 	private String planName;
-	
 	
 	/** The plan type. */
 	@Column(name="planType", length=10)
@@ -46,6 +49,21 @@ public class Plans implements Serializable{
 	/** The plan duration. */
 	@Column(name="planDuration", length = 15)
 	private String planDuration;
+
+	/**
+	 * @return the planName
+	 */
+	public int getPlanID() {
+		return planID;
+	}
+
+
+	/**
+	 * @param planID the planID to set
+	 */
+	public void setPlanName(int planID) {
+		this.planID = planID;
+	}
 
 
 	/**
