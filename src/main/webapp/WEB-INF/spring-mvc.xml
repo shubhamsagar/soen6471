@@ -42,6 +42,9 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.asa.CRP.model.CustomerRepresentative</value>
+				<value>com.asa.CRP.model.Plans</value>
+				<value>com.asa.CRP.model.Customer</value>
+				<value>com.asa.CRP.model.Tickets</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

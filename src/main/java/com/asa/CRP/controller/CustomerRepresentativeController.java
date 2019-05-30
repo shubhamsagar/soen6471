@@ -45,4 +45,10 @@ public class CustomerRepresentativeController {
 		model.addAttribute("crs", list);
 		return "crs";
 	}
+	
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(ModelMap model) {
+		return "login";
+	}
 }
