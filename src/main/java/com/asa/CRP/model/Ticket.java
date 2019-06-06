@@ -4,6 +4,7 @@
 package com.asa.CRP.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,8 +21,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "tickets")
-public class Tickets implements Serializable{
+@Table(name = "c_tickets")
+public class Ticket implements Serializable{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -3376074280614690277L;
@@ -29,32 +30,44 @@ public class Tickets implements Serializable{
 	/** The ticket id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	@Column(name="ticketId", length=10, unique = true)
+	@Column(name="Ticket_Id", length=10, unique = true)
 	private int ticketId;
 	
 	
 	/** The date. */
-	@Column(name="date", length=10)
-	private String date;
+	@Column(name="Date")
+	private Date date;
 	
 	
 	/** The issue. */
-	@Column(name="issue", length = 50)
+	@Column(name="Issue", length = 50)
 	private String issue;
 	
 	
 	/** The raised by. */
-	@Column(name="raisedBy", length = 30)
-	private String raisedBy;
+	@Column(name="Raised_By", length = 30)
+	private int raisedBy;
 	
 	
 	/** The raised for. */
-	@Column(name="raisedFor", length = 50)
-	private String raisedFor;
+	@Column(name="Raised_For", length = 50)
+	private int raisedFor;
 	
 	/** The status. */
-	@Column(name="status", length = 30)
+	@Column(name="Status", length = 30)
 	private String status;
+	
+	public Ticket(){
+		
+	}
+	
+	public Ticket(Date date, String issue, Integer raisedBy, Integer raisedFor, String status){
+		this.date = date;
+		this.issue = issue;
+		this.raisedBy = raisedBy;
+		this.raisedFor = raisedFor;
+		this.status = status;
+	}
 
 	/**
 	 * Gets the ticket id.
@@ -79,7 +92,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @return the date
 	 */
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
@@ -88,7 +101,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @param date the date to set
 	 */
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -115,7 +128,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @return the raisedBy
 	 */
-	public String getRaisedBy() {
+	public int getRaisedBy() {
 		return raisedBy;
 	}
 
@@ -124,7 +137,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @param raisedBy the raisedBy to set
 	 */
-	public void setRaisedBy(String raisedBy) {
+	public void setRaisedBy(int raisedBy) {
 		this.raisedBy = raisedBy;
 	}
 
@@ -133,7 +146,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @return the raisedFor
 	 */
-	public String getRaisedFor() {
+	public int getRaisedFor() {
 		return raisedFor;
 	}
 
@@ -142,7 +155,7 @@ public class Tickets implements Serializable{
 	 *
 	 * @param raisedFor the raisedFor to set
 	 */
-	public void setRaisedFor(String raisedFor) {
+	public void setRaisedFor(int raisedFor) {
 		this.raisedFor = raisedFor;
 	}
 

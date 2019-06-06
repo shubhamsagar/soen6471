@@ -19,8 +19,8 @@ import javax.persistence.Table;
  * @version 1.0
  */
 @Entity
-@Table(name = "plans")
-public class Plans implements Serializable{
+@Table(name = "c_plans")
+public class Plan implements Serializable{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -6279182730809596623L;
@@ -29,25 +29,25 @@ public class Plans implements Serializable{
 	/** The plan ID. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	@Column(name="planID", length=10, unique = true)
+	@Column(name="Plan_ID", length=10, unique = true)
 	private int planID;
 
 	/** The plan name. */
-	@Column(name="planName", length=10, unique = true)
+	@Column(name="Plan_Name", length=10, unique = true)
 	private String planName;
 	
 	/** The plan type. */
-	@Column(name="planType", length=10)
+	@Column(name="Plan_Type", length=10)
 	private String planType;
 	
 	
 	/** The plan amount. */
-	@Column(name="planAmount", length = 20)
+	@Column(name="Plan_Amount", length = 20)
 	private int planAmount;
 	
 	
 	/** The plan duration. */
-	@Column(name="planDuration", length = 15)
+	@Column(name="Plan_Duration", length = 15)
 	private String planDuration;
 
 	/**
