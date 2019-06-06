@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * @version 1.0
  */
 @Entity
-@Table(name = "customer")
+@Table(name = "c_customer")
 public class Customer implements Serializable{
 
 	/** The Constant serialVersionUID. */
@@ -27,11 +27,11 @@ public class Customer implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	@Column(name="custId", length=10, unique = true)
+	@Column(name="Customer_Id", length=10, unique = true)
 	private int custId;
 	
 	/** The phone number. */
-	@Column(name="phone", length=10, unique = true)
+	@Column(name="Phone", length=10, unique = true)
 	private int phoneNumber;
 	
 	/** The cust first name. */
@@ -51,11 +51,11 @@ public class Customer implements Serializable{
 	private String custAddress;
 	
 	/** The cust plan. */
-	@Column(name="custPlan", length = 200)
-	private String custPlan;
+	@Column(name="Customer_Plan", length = 200)
+	private Plan custPlan;
 	
 	/** The ticket raised. */
-	@Column(name="ticketsRaised", length = 200)
+	@Column(name="Tickets_Raised", length = 200)
 	private int ticketsRaised;
 
 	/**
@@ -171,7 +171,7 @@ public class Customer implements Serializable{
 	 *
 	 * @return the custPlan
 	 */
-	public String getCustPlan() {
+	public Plan getCustPlan() {
 		return custPlan;
 	}
 
@@ -180,7 +180,7 @@ public class Customer implements Serializable{
 	 *
 	 * @param custPlan the custPlan to set
 	 */
-	public void setCustPlan(String custPlan) {
+	public void setCustPlan(Plan custPlan) {
 		this.custPlan = custPlan;
 	}
 

@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<th></th>
-					<td><b>Forget my password</b></a>&nbsp;</td>
+					<td><b>Forgot my password</b></a>&nbsp;</td>
 				</tr>
 			</table>
 	</form>
