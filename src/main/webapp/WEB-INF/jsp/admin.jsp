@@ -15,7 +15,7 @@ margin-top:100px;
 <body>
 <a href="CustomerWelcome.jsp">Welcome</a>
 <a href="CustomerLogin.jsp">Login</a>
-<hr><br><br>
+<hr><br><br><br>
 <center>
 <i class='fas fa-users' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="" >Create User</a></font></i><br><br>
 <i class='fas fa-user-minus' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="" >Delete User</a></font></i><br><br>

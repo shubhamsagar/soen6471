@@ -20,8 +20,8 @@
 <a href ="CustomerLogin.jsp">Login</a>
 <h1 align="Center"> <font size="40px" color="black"><font face="Lucida Calligraphy" size=20>
                         <p>Welcome to</p>
-                         <p>Customer Relationship Management</p> </font></font>
-                        <br>
+                         <p>Customer Relationship Management</p> </font></font><br>
+                        
                     </h1>
 </body>
 </html>

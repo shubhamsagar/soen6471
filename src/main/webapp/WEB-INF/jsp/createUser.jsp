@@ -36,7 +36,7 @@ margin-top:100px;
                 <tr>
                 <th>Role*</th>
                 <td><input type="text" name="cr_Role"></td>
-                </tr> 
+                </tr>
                   <tr>
                    <td><input type="submit" value="Create"></td>
                 </tr>                               

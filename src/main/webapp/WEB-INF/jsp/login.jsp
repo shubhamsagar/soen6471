@@ -41,8 +41,7 @@ color:black;
 					
 					<td><input type="submit" name="operation" value="SignIn"></td>
 				</tr>
-				<tr>
-					<th></th>
+				<tr>								
 					<td><b><a href="" >Forget my password</a></b>&nbsp;</td>
 				</tr>
 			</table></center></form>
