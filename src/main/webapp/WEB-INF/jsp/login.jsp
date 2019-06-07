@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 body {
-	background-image: url("/CRP/images/callcenter.jpg");
+	background-image: url("/CollegeProject/images/callcenter.jpg");
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 	
@@ -22,7 +22,10 @@ color:black;
 </style>
 </head>
 <body>
+<a href="CustomerWelcome.jsp">Welcome</a>
+<a href="CustomerLogin.jsp">Login</a>
 <h1><center>Login</center></h1>
+<form action="">
 <center><table>
 				<tr>
 					<th>LoginId*</th>
@@ -36,12 +39,12 @@ color:black;
 				</tr>
 				<tr>
 					
-					<td><input type="submit" name="operation" label="SignIn"> 	&nbsp;</td>
+					<td><input type="submit" name="operation" value="SignIn"></td>
 				</tr>
 				<tr>
 					<th></th>
 					<td><b><a href="" >Forget my password</a></b>&nbsp;</td>
 				</tr>
-			</table></center>
+			</table></center></form>
 </body>
 </html>
