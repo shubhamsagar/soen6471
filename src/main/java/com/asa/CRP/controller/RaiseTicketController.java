@@ -78,7 +78,7 @@ public class RaiseTicketController {
 				Ticket t = ticketService.createTicket(
 						new Ticket(new Date(System.currentTimeMillis()), reqPar.get("issue"), (Integer)httpSession.getAttribute("crId"), Integer.valueOf(reqPar.get("customerID")), "open"));
 				model.addAttribute("ticket", t);
-				return "ticket";
+				return "crmain";
 			}
 			return "error";
 		} else {

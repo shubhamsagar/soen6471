@@ -68,8 +68,8 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		Root<CustomerRepresentative> root = query.from( CustomerRepresentative.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("User_Name"), givenCR.getCrUserName()),
-		        builder.equal(root.get("Password"), givenCR.getCrPassword())
+		        builder.equal(root.get("crUserName"), givenCR.getCrUserName()),
+		        builder.equal(root.get("crPassword"), givenCR.getCrPassword())
 		    )
 		);
 		CustomerRepresentative cr = entityManager.createQuery( query ).getSingleResult();
@@ -89,11 +89,12 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		Root<CustomerRepresentative> root = query.from( CustomerRepresentative.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("User_Name"), givenCR.getCrUserName())
+		        builder.equal(root.get("crUserName"), givenCR.getCrUserName())
 		    )
 		);
 		cr = entityManager.createQuery( query ).getSingleResult();
 		return cr;
 	}
+	
 
 }

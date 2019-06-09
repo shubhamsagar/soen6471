@@ -43,7 +43,7 @@ public class PlanServiceImpl implements PlanService{
 
 	@Transactional
 	public List<Plan> listPlan() {
-		return this.listPlan();
+		return this.planDAO.listPlan();
 	}
 
 	@Transactional

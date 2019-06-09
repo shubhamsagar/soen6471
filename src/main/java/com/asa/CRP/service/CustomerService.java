@@ -2,12 +2,13 @@ package com.asa.CRP.service;
 
 import java.util.List;
 
+
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Plan;
 
 public interface CustomerService {
 
-public void updateCustomerRepresentative(Customer cust);
+public void updateCustomer(Customer cust);
 	
 	public Customer getCustomerById(int id);
 	
