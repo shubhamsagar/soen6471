@@ -25,5 +25,6 @@ public interface CustomerRepresentativeDAO {
 	public boolean customerRepresentativeLoginCheck(CustomerRepresentative cr);
 	
 	public CustomerRepresentative getCustomerRepresentativeByUserName(CustomerRepresentative cr);
+	
 
 }

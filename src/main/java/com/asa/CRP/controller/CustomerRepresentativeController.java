@@ -38,17 +38,17 @@ public class CustomerRepresentativeController {
 	protected Properties property = propertiesLoader.getMiscProperties();
 
 		
-	/*@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String listCRs(ModelMap model) {
 		logger.info("I am writing here");
 		List<CustomerRepresentative> list = customerRepresentativeService.listCustomerRepresentatives();
 		model.addAttribute("crs", list);
 		return "crs";
-	}*/
+	}
 	
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
 		return "login";
-	}
+	}*/
 }

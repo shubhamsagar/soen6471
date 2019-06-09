@@ -45,7 +45,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(value = "/customerRepresentativeLoginCheck", method = RequestMethod.POST)
-	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession) {
+	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap map) {
 		
 		CustomerRepresentative cr=new CustomerRepresentative();
 		cr.setCrUserName(reqPar.get("login"));

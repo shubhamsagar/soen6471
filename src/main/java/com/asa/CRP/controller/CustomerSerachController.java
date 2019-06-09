@@ -32,6 +32,11 @@ public class CustomerSerachController {
 	 */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	@RequestMapping(value = "/customersearch", method = RequestMethod.GET)
+	public String login(ModelMap model) {
+		return "customersearch";
+	}
+
 	
 	@RequestMapping(value = "/customersearch", method = RequestMethod.POST)
 	public String findCustomer(@RequestParam Map<String,String> reqPar, ModelMap model) {
@@ -44,6 +49,6 @@ public class CustomerSerachController {
 			model.addAttribute("customerSearchStatus", "RESULTS_NOT_FOUND"); 
 			model.addAttribute("customersearchResult", "NO CUSTOMER WITH GIVEN DETAILS FOUND!");
 		}
-		return "crmain";
+		return "customersearch";
 	}
 }
