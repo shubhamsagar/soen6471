@@ -1,0 +1,50 @@
+.main{
+    overflow: hidden;
+    background-color: antiquewhite;
+	padding-top:50px;
+    height: 750px;
+}
+
+.table{
+    margin-left: 160px;
+    margin-top: 50px; 
+    width: 50px;
+    background-color: cornsilk; 
+}
+
+.staticComment{
+    margin-left: 160px;
+    margin-top: 50px; 
+}
+
+.tableDetails{
+	width: 1150px;
+}
+
+.comments{
+	margin-left: 160px;
+}
+
+.addComment{
+	margin-left: 162px;
+	
+}
+
+.form-group{
+	margin-left:160px;
+}
+
+.form-area{
+	width: 960px;
+    height: 150px;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: beige
+}
+
+.btnSubmitIssue{
+	margin-left:500px;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: beige
+}

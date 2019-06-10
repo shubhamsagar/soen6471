@@ -1,0 +1,32 @@
+.bs-example{
+	
+  margin-top: 20px;
+  margin-left: 250px;
+  margin-right: 250px;
+  margin-bottom: 50px;
+  background-color: cornsilk; 
+
+}
+
+.main{
+	overflow: hidden;
+	background-color: antiquewhite;
+	padding-bottom:485px;
+}
+
+table {
+	padding-top:50px;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th {
+  height: 50px;
+
+}
+
+.heading{
+	text-align:center;
+	margin-top:50px;
+	padding-top:50px:
+}
