@@ -59,7 +59,5 @@ public class CustomerRepresentativeServiceImpl implements CustomerRepresentative
 	public CustomerRepresentative getCustomerRepresentativeByUserName(CustomerRepresentative cr) {
 		return this.customerRepresentativeDAO.getCustomerRepresentativeByUserName(cr);
 	}
-	
-	
 
 }

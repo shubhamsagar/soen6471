@@ -11,21 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
-import com.asa.CRP.model.CustomerRepresentative;
+import com.asa.CRP.model.Plan;
 import com.asa.CRP.service.CustomerRepresentativeService;
+import com.asa.CRP.service.PlanService;
 
-/**
- * 
- * @author Shivani
- *
- */
 @Controller
-public class CustomerRepresentativeController {
-	
+public class ExplorePlanController {
+
 	private Logger logger = Logger.getLogger(CustomerRepresentativeController.class);
 	
 	@Autowired
-	private CustomerRepresentativeService customerRepresentativeService;
+	private PlanService planService;
 	
 	/**
 	 * Properties file loader
@@ -38,17 +34,11 @@ public class CustomerRepresentativeController {
 	protected Properties property = propertiesLoader.getMiscProperties();
 
 		
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/exploreplans", method = RequestMethod.GET)
 	public String listCRs(ModelMap model) {
-		logger.info("I am writing here");
-		List<CustomerRepresentative> list = customerRepresentativeService.listCustomerRepresentatives();
-		model.addAttribute("crs", list);
-		return "crs";
+		List<Plan> list = planService.listPlan();
+		model.addAttribute("exploreplans", list);
+		return "exploreplans";
 	}
 	
-	
-	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(ModelMap model) {
-		return "login";
-	}*/
 }
