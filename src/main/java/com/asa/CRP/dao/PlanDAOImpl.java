@@ -67,7 +67,7 @@ public class PlanDAOImpl implements PlanDAO{
 		Root<Plan> root = query.from( Plan.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("Plan_Name"), givenPlan.getPlanName())
+		        builder.equal(root.get("planName"), givenPlan.getPlanName())
 		    )
 		);
 		plan = entityManager.createQuery( query ).getSingleResult();
@@ -82,7 +82,7 @@ public class PlanDAOImpl implements PlanDAO{
 		Root<Plan> root = query.from( Plan.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("Plan_Amount"), givenPlan.getPlanAmount())
+		        builder.equal(root.get("planAmount"), givenPlan.getPlanAmount())
 		    )
 		);
 		List<Plan> plan = entityManager.createQuery( query ).getResultList();

@@ -1,17 +1,15 @@
-package com.asa.CRP.service;
+package com.asa.CRP.dao;
 
 import java.util.List;
-
 
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Plan;
 
-public interface CustomerService {
-
+public interface CustomerDAO {
 
 public void addCustomer(Customer cust);
 	
-public void updateCustomer(Customer cust);
+	public void updateCustomer(Customer cust);
 	
 	public Customer getCustomerById(int id);
 	
@@ -28,10 +26,9 @@ public void updateCustomer(Customer cust);
 	public Customer getCustomerByEmail(Customer cust);
 	
 	public Plan getCustomerActivePlan(Customer cust);
-	
+		
 	public int getTickectsRaisedByCustomer(Customer cust);
 	
 	public List<Customer> searchCustomer(String searchBy, String value);
-	
 	
 }
