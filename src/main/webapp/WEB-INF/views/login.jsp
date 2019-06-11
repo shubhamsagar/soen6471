@@ -20,10 +20,8 @@ color:black;
 </style>
 </head>
 <body>
-<a href="CustomerWelcome.jsp">Welcome</a>
-<a href="CustomerLogin.jsp">Login</a>
 <h1><center>Login</center></h1>
-<form action="">
+<form action="customerRepresentativeLoginCheck" method="post">
 <center><table>
 				<tr>
 					<th>LoginId*</th>
@@ -36,7 +34,7 @@ color:black;
 						color="red"></font></td>
 				</tr>
 				<tr>
-					
+					<th></th>
 					<td><input type="submit" name="operation" value="SignIn"></td>
 				</tr>
 				<tr>								

@@ -60,7 +60,7 @@ public class LoginController {
 			else if(cr.getCrRole().equals(CRRoles.TECHNICIAN)) {
 				return "technicianmain";
 			}else {
-				return "adminmain";
+				return "admin";
 			}
 		}else {
 		return "login";

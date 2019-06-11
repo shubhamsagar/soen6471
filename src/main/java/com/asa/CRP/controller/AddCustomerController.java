@@ -26,7 +26,7 @@ import com.asa.CRP.service.PlanService;
 @Controller
 public class AddCustomerController {
 
-private Logger logger = Logger.getLogger(CustomerController.class);
+private Logger logger = Logger.getLogger(AddCustomerController.class);
 	
 	@Autowired
 	private CustomerService customerService;
@@ -45,12 +45,12 @@ private Logger logger = Logger.getLogger(CustomerController.class);
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	@RequestMapping(value = "/addcustomer", method = RequestMethod.GET)
-	public String login(ModelMap model) {
+	public String addCust(ModelMap model) {
 		return "addcustomer";
 	}
 
 	@RequestMapping(value = "/addcustomerconfirmation", method = RequestMethod.GET)
-	public String listCRs(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
+	public String addCustomer(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
 			logger.info("I am writing here");
 			Customer customer = new Customer();

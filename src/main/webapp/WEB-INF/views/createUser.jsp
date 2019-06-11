@@ -10,36 +10,37 @@ margin-top:100px;
 </style>
 </head>
 <body>
-<a href="CustomerWelcome.jsp">Welcome</a>
-<a href="CustomerLogin.jsp">Login</a>
+<form action="createCustomerRepresentative" method="get">		
 <hr><br>
 <center><font face="Lucida Calligraphy" size=5>Create User</font><br><br>
 <table>
                 <tr>
                     <th>First Name*</th>
-                    <td><input type="text" name="First_Name"></td>
+                    <td><input type="text" name="firstName"></td>
                 </tr>
                 <tr>
                     <th>Last Name*</th>
-                    <td><input type="text" name="Last_Name"></td>
+                    <td><input type="text" name="lastName"></td>
                 </tr>
                 <tr>
-                <th>UserName*</th>
-                <td><input type="text" name="User_Name"></td>
+                <th>User Name*</th>
+                <td><input type="text" name="userName"></td>
                 </tr>
                 <tr>
                 <th>Password*</th>
-                <td><input type="password" name="Password"></td>
+                <td><input type="password" name="password"></td>
                 </tr>
                 <tr>
                 <th>Role*</th>
-                <td><input type="text" name="cr_Role"></td>
+                <td><input type="text" name="crRole"></td>
                 </tr>
                   <tr>
-                   <td><input type="submit" value="Create"></td>
+                  <th></th>
+                   <td>&nbsp;&nbsp;&nbsp; <input type="submit" value="Create"></td>
                 </tr>                               
            
             </table></center>
             <hr>
+ </form>
 </body>
 </html>
