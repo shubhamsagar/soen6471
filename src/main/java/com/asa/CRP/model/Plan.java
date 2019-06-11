@@ -61,7 +61,7 @@ public class Plan implements Serializable{
 	/**
 	 * @param planID the planID to set
 	 */
-	public void setPlanName(int planID) {
+	public void setPlanID(int planID) {
 		this.planID = planID;
 	}
 

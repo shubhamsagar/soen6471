@@ -42,8 +42,6 @@ public class LoginController {
 		return "login";
 	}
 	
-	
-	
 	@RequestMapping(value = "/customerRepresentativeLoginCheck", method = RequestMethod.POST)
 	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap map) {
 		

@@ -1,5 +1,6 @@
 package com.asa.CRP.controller;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
@@ -38,19 +40,20 @@ private Logger logger = Logger.getLogger(CustomerController.class);
 	 */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
-	@RequestMapping(value = "/updateplan", method = RequestMethod.GET)
-	public String login(ModelMap model) {
+	@RequestMapping(value = "/updateplan/{customerID}", method = RequestMethod.GET)
+	public String login(@PathVariable int customerID, ModelMap model) {
+		model.addAttribute("customer", customerID);
+		List<Plan> list = planService.listPlan();
+		model.addAttribute("exploreplans", list);
 		return "updateplan";
 	}
 	
-	@RequestMapping(value = "/selectupdateplan/{customerID}", method = RequestMethod.GET)
-	public String listCRs(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
+	@RequestMapping(value = "/selectupdateplan/{planID}", method = RequestMethod.GET)
+	public String listCRs(@RequestParam int customerID,@PathVariable int planID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
 			logger.info("I am writing here");
 			Customer customer = customerService.getCustomerById(customerID);
-			Plan plan=new Plan();
-			plan.setPlanName("NO PLAN");
-			planService.getPlanByName(plan);
+			Plan plan=planService.getPlanById(planID);
 			customer.setCustPlan(plan);
 			customerService.updateCustomer(customer);
 			return "customer";

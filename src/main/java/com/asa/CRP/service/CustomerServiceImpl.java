@@ -20,6 +20,11 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Transactional
+	public void addCustomer(Customer cust) {
+	this.customerDAO.addCustomer(cust);
+	}
+
+	@Transactional
 	public void updateCustomer(Customer cust) {
 		this.customerDAO.updateCustomer(cust);
 	}
