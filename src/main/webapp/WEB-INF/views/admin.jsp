@@ -11,14 +11,19 @@ margin-top:100px;
 </style>
 </head>
 <body>
-<a href="CustomerWelcome.jsp">Welcome</a>
-<a href="CustomerLogin.jsp">Login</a>
 <hr><br><br><br>
 <center>
-<i class='fas fa-users' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="" >Create User</a></font></i><br><br>
-<i class='fas fa-user-minus' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="" >Delete User</a></font></i><br><br>
-<i class='fas fa-user' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="" >View User</a></font></i><br><br>
-<i class='fas fa-phone' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="" >Add Plans</a></font></i>
+
+<i class='fas fa-users' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="/CustomerRepresentativePortal/createuser" >Create User</a></font></i><br><br>
+
+
+<i class='fas fa-user-minus' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="/CustomerRepresentativePortal/deleteuser" >Delete User</a></font></i><br><br>
+
+<i class='fas fa-user' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="/CustomerRepresentativePortal/viewusers" >View Users</a></font></i><br><br>
+
+
+<i class='fas fa-phone' style='font-size:24px'>&nbsp;&nbsp;&nbsp;<font size=5><a href="/CustomerRepresentativePortal/addplan" >Add Plans</a></font></i>
+
 </center>
 <hr>
 </body>
