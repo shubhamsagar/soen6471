@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ticket Details</title>
+    <link rel="stylesheet" href ="tickdetail.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div class="main">
+		<div class="heading" style="text-align:center">
+			<h3>Ticket Details</h3>
+		</div>
+		<div class="tableDetails"> 
+			<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Raised For</th>
+					<th scope="col">Raised By</th>
+					<th scope="col">Issue</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<!-- Put data Dynamically here-->
+					<th scope="row">1</th>
+					<td>Shubham Sagar</td>
+					<td>chirag</td>
+					<td>Issue</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+		<div class="staticComment">
+            <div class="form-group1">
+                <h5 class="commentHeader">Earlier Comments</h5>
+            </div>
+            <div class="comments">
+				<!--We will get data from backend for comments to be displayed-->
+                <script>
+
+                    var comments = ["commen1 : I am ustaadhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+					"comment2: I am Bathinda Boy dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+					"Comment3: I am Concordianwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"];
+                    var text = "";
+                    for (var i = 0; i < comments.length; i++) {
+                        text += comments[i] + "<br>";
+                    }
+					document.write(text);
+                    //document.getElementById("demo").innerHTML = text;
+                </script>
+            </div>
+		</div>
+		<div class="addComment">
+			<div class="header">
+				<h5>Add Comment:</h5>
+			</div>
+			<div class="form-group">
+				<textarea rows="5" cols="100" class="form-area" placeholder=" Type Issue here" value=""></textarea>
+			</div>
+			
+			<div class="form-group3">
+				<input type="submit" class="btnSubmitIssue" value="Submit" />
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
