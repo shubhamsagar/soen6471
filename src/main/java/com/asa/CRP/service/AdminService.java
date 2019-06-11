@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.asa.CRP.dao;
+package com.asa.CRP.service;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import com.asa.CRP.model.Plan;
 
 
 /**
- * The Interface AdminDAO.
+ * The Interface AdminService.
  *
  * @author Chirag Vora
  * @version 1.0
  */
-public interface AdminDAO {
+public interface AdminService {
 
 	/**
 	 * Creates the user.
@@ -44,6 +44,4 @@ public interface AdminDAO {
 	 * @param plan the plan
 	 */
 	public void addPlans(Plan plan);
-
-
 }
