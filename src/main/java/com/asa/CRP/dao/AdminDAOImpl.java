@@ -57,8 +57,8 @@ public class AdminDAOImpl implements AdminDAO{
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<CustomerRepresentative> listCustomerRepresentatives() {
 		Session session = sessionFactory.getCurrentSession();
-		List<CustomerRepresentative> CrList = session.createQuery("from CustomerRepresentative").list();
-		return CrList;
+		List<CustomerRepresentative> crList = session.createQuery("from CustomerRepresentative").list();
+		return crList;
 	}
 
 
