@@ -1,6 +1,6 @@
 package com.asa.CRP.controller;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.http.HttpSession;
@@ -15,22 +15,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.asa.CRP.commons.CRRoles;
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
-import com.asa.CRP.model.Plan;
+import com.asa.CRP.model.CustomerRepresentative;
+import com.asa.CRP.service.CustomerRepresentativeService;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.PlanService;
 
 @Controller
-public class UpdatePlanController {
+public class BackToMainController {
+
 private Logger logger = Logger.getLogger(CustomerController.class);
 	
 	@Autowired
-	private CustomerService customerService;
+	private CustomerRepresentativeService customerRepresentativeService;
 	
 	@Autowired
 	private PlanService planService;
+	
 	/**
 	 * Properties file loader
 	 */
@@ -41,25 +45,25 @@ private Logger logger = Logger.getLogger(CustomerController.class);
 	 */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
-	@RequestMapping(value = "/updateplan/{customerID}", method = RequestMethod.GET)
-	public String login(@PathVariable int customerID, ModelMap model) {
-		model.addAttribute("customer", customerID);
-		List<Plan> list = planService.listPlan();
-		model.addAttribute("exploreplans", list);
-		return "updateplan";
-	}
-	
-	@RequestMapping(value = "/selectupdateplan/{planID}", method = RequestMethod.GET)
-	public ModelAndView listCRs(@RequestParam int customerID,@PathVariable int planID, HttpSession httpSession, ModelMap model) {
+	@RequestMapping(value = "/backtomain", method = RequestMethod.GET)
+	public ModelAndView toMain(HttpSession httpSession, ModelMap model) {
+		
+		CustomerRepresentative cr = customerRepresentativeService.getCustomerRepresentativeById(Integer.valueOf(httpSession.getAttribute("crId").toString()));
 		if(Utils.validateCRSession(httpSession)){
-			logger.info("I am writing here");
-			Customer customer = customerService.getCustomerById(customerID);
-			customer.setCustPlan(planID);
-			customerService.updateCustomer(customer);
-			return new ModelAndView("redirect:/customer/"+customerID);
-		} else {
-			return new ModelAndView("redirect:/unauthorized");
+			
+		if(cr.getCrRole().equals(CRRoles.CUSTOMER_REPRESENTATIVE.name())) {
+			return new ModelAndView("redirect:/crmain");
+				}
+		else if(cr.getCrRole().equals(CRRoles.TECHNICIAN.name())) {	
+			return new ModelAndView("redirect:/technicianmain");
+			
+		}else {
+			return new ModelAndView("redirect:/adminmain");
 			
 		}
+	}else {
+		return new ModelAndView("redirect:/unauthorized");
+		}
 	}
+	
 }

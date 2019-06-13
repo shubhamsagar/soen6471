@@ -52,7 +52,7 @@ public class Customer implements Serializable{
 	
 	/** The cust plan. */
 	@Column(name="Customer_Plan", length = 200)
-	private Plan custPlan;
+	private int custPlan;
 	
 	/** The ticket raised. */
 	@Column(name="Tickets_Raised", length = 200)
@@ -171,7 +171,7 @@ public class Customer implements Serializable{
 	 *
 	 * @return the custPlan
 	 */
-	public Plan getCustPlan() {
+	public int getCustPlan() {
 		return custPlan;
 	}
 
@@ -180,7 +180,7 @@ public class Customer implements Serializable{
 	 *
 	 * @param custPlan the custPlan to set
 	 */
-	public void setCustPlan(Plan custPlan) {
+	public void setCustPlan(int custPlan) {
 		this.custPlan = custPlan;
 	}
 

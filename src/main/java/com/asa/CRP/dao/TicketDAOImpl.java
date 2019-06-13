@@ -55,7 +55,7 @@ public class TicketDAOImpl implements TicketDAO{
 	public List<Ticket> listTicket() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<Ticket> TicketList = session.createQuery("from Plan").list();
+		List<Ticket> TicketList = session.createQuery("from Ticket").list();
 		return TicketList;
 	}
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.SearchBy;
@@ -58,12 +59,14 @@ public class DeleteCustomerController {
 	}
 	
 	@RequestMapping(value = "/deletecustomerconfirmation/{customerID}", method = RequestMethod.GET)
-	public String deleteCustomer(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
+	public ModelAndView deleteCustomer(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
 		customerService.removeCustomer(customerID);
-	    return "crmain";  
+	  return new ModelAndView("redirect:/crmain");
+		//return "crmain";  
 		}else {
-			return "aunauthorized";
+			return new ModelAndView("redirect:/unauthorized");
+			//return "unauthorized";
 		}
 	}
 	

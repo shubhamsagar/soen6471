@@ -72,7 +72,12 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		        builder.equal(root.get("crPassword"), givenCR.getCrPassword())
 		    )
 		);
-		CustomerRepresentative cr = entityManager.createQuery( query ).getSingleResult();
+		CustomerRepresentative cr = null;
+		try {
+			cr = entityManager.createQuery( query ).getSingleResult();
+		} catch (RuntimeException e){
+			logger.error("the following exception occured " + e.getMessage());
+		}
 		if(cr != null && givenCR.getCrUserName().equals(cr.getCrUserName())){
 			
 			return true;
@@ -80,7 +85,7 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		logger.warn("The CR was not found");
 		return false;
 	}
-
+	
 	public CustomerRepresentative getCustomerRepresentativeByUserName(CustomerRepresentative givenCR) {
 		CustomerRepresentative cr = new CustomerRepresentative();
 		EntityManager entityManager = sessionFactory.createEntityManager();

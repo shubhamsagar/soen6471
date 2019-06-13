@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
@@ -27,8 +28,6 @@ public class CancelPlanController {
 	@Autowired
 	private CustomerService customerService;
 	
-	@Autowired
-	private PlanService planService;
 	/**
 	 * Properties file loader
 	 */
@@ -42,25 +41,22 @@ public class CancelPlanController {
 	@RequestMapping(value = "/cancelplan/{customerID}", method = RequestMethod.GET)
 	public String login(@PathVariable int customerID, ModelMap model) {
 		Customer customer = customerService.getCustomerById(customerID);
-		model.addAttribute("cancelplan", customer);
+		model.addAttribute("customer", customer);
 		return "cancelplan";
 	}
 	
 
 	@RequestMapping(value = "/cancelplanconfirmation/{customerID}", method = RequestMethod.GET)
-	public String listCRs(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
+	public ModelAndView listCRs(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
 			logger.info("I am writing here");
 			Customer customer = customerService.getCustomerById(customerID);
-			Plan plan=new Plan();
-			plan.setPlanName("NO PLAN");
-			planService.getPlanByName(plan);
-			customer.setCustPlan(plan);
+			customer.setCustPlan(100);
 			customerService.updateCustomer(customer);
 			model.addAttribute("customer",customer);
-			return "customer";
-		} else {
-			return "unauthorized";
-		}
+			 return new ModelAndView("redirect:/customer/"+customerID);
+				} else {
+					return new ModelAndView("redirect:/unauthorized");
+					}
 	}
 }

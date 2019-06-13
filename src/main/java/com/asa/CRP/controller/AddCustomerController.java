@@ -54,14 +54,11 @@ private Logger logger = Logger.getLogger(AddCustomerController.class);
 		if(Utils.validateCRSession(httpSession)){
 			logger.info("I am writing here");
 			Customer customer = new Customer();
-			Plan plan=new Plan();
-			plan.setPlanName(reqPar.get("plan"));
-			planService.getPlanByName(plan);
 			customer.setCustAddress(reqPar.get("address"));
 			customer.setCustEmail(reqPar.get("email"));
 			customer.setCustFirstName(reqPar.get("firstname"));
 			customer.setCustLastName(reqPar.get("lastname"));
-			customer.setCustPlan(plan);
+			customer.setCustPlan(Integer.valueOf(reqPar.get("plan")));
 			customer.setPhoneNumber(Integer.valueOf(reqPar.get("phoneno")));
 			customer.setTicketRaised(0);
 			customerService.addCustomer(customer);
