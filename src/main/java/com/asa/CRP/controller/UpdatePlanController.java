@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
@@ -49,16 +50,16 @@ private Logger logger = Logger.getLogger(CustomerController.class);
 	}
 	
 	@RequestMapping(value = "/selectupdateplan/{planID}", method = RequestMethod.GET)
-	public String listCRs(@RequestParam int customerID,@PathVariable int planID, HttpSession httpSession, ModelMap model) {
+	public ModelAndView listCRs(@RequestParam int customerID,@PathVariable int planID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
 			logger.info("I am writing here");
 			Customer customer = customerService.getCustomerById(customerID);
-			Plan plan=planService.getPlanById(planID);
-			customer.setCustPlan(plan);
+			customer.setCustPlan(planID);
 			customerService.updateCustomer(customer);
-			return "customer";
+			return new ModelAndView("redirect:/customer/"+customerID);
 		} else {
-			return "unauthorized";
+			return new ModelAndView("redirect:/unauthorized");
+			
 		}
 	}
 }
