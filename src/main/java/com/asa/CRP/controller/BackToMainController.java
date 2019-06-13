@@ -32,9 +32,6 @@ private Logger logger = Logger.getLogger(CustomerController.class);
 	@Autowired
 	private CustomerRepresentativeService customerRepresentativeService;
 	
-	@Autowired
-	private PlanService planService;
-	
 	/**
 	 * Properties file loader
 	 */
