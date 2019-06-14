@@ -17,6 +17,7 @@ import com.asa.CRP.commons.CRRoles;
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.model.CustomerRepresentative;
 import com.asa.CRP.service.CustomerRepresentativeService;
+import com.asa.CRP.service.TicketService;
 
 @Controller
 public class LoginController {
@@ -25,7 +26,8 @@ public class LoginController {
 	
 	@Autowired
 	private CustomerRepresentativeService customerRepresentativeService;
-	
+	@Autowired
+	private TicketService ticketService;
 	/**
 	 * Properties file loader
 	 */
@@ -42,8 +44,6 @@ public class LoginController {
 		return "login";
 	}
 	
-	
-	
 	@RequestMapping(value = "/customerRepresentativeLoginCheck", method = RequestMethod.POST)
 	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap map) {
 		
@@ -59,15 +59,16 @@ public class LoginController {
 			if(cr.getCrRole().equals(CRRoles.CUSTOMER_REPRESENTATIVE.name())) {
 				return "crmain";
 			}
-			else if(cr.getCrRole().equals(CRRoles.TECHNICIAN)) {
+			else if(cr.getCrRole().equals(CRRoles.TECHNICIAN.name())) {
+				System.out.println("Ticket is" + ticketService.listTicket().size() +" ---- "+ ticketService.listTicket().toString());
+				
 				return "technicianmain";
 			}else {
 				return "adminmain";
 			}
 		}else {
-		return "login";
+			map.addAttribute("userNotFoundError", "true");
+			return "login";
 		}
 	}
-	
-
 }
