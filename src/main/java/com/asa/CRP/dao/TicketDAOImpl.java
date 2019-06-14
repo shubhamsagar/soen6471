@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Ticket;
 
-@Repository
+@Repository("TicketDAO")
 public class TicketDAOImpl implements TicketDAO{
 	
 
@@ -56,7 +56,7 @@ public class TicketDAOImpl implements TicketDAO{
 	public List<Ticket> listTicket() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<Ticket> TicketList = session.createQuery("from Plan").list();
+		List<Ticket> TicketList = session.createQuery("from Ticket").list();
 		return TicketList;
 	}
 
