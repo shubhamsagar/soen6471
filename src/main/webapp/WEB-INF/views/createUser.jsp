@@ -51,23 +51,23 @@ input[type=submit] {
 			<table>
 				<tr>
 					<th>First Name*</th>
-					<td><input type="text" name="firstName"></td>
+					<td><input type="text" name="firstName" required></td>
 				</tr>
 				<tr>
 					<th>Last Name*</th>
-					<td><input type="text" name="lastName"></td>
+					<td><input type="text" name="lastName" required></td>
 				</tr>
 				<tr>
 					<th>User Name*</th>
-					<td><input type="text" name="userName"></td>
+					<td><input type="text" name="userName" required></td>
 				</tr>
 				<tr>
 					<th>Password*</th>
-					<td><input type="password" name="password"></td>
+					<td><input type="password" name="password" required></td>
 				</tr>
 				<tr>
 					<th>Role*</th>
-					<td><input type="text" name="crRole"></td>
+					<td><input type="text" name="crRole" required></td>
 				</tr>
 				<tr>
 					<th></th>

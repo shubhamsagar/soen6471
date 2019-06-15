@@ -48,7 +48,7 @@ input[type=submit] {
 	<center>
 		<form action="deleteUserConfirmation" method="get">
 			<label for="id">CustRepID: </label> <input name="cid" id="custRepID"
-				size="20"><br> &nbsp;&nbsp;<input type="submit"
+				size="20" required><br> &nbsp;&nbsp;<input type="submit"
 				value="Delete" />
 		</form>
 	</center>

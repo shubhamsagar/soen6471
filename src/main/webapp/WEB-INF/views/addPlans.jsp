@@ -53,19 +53,19 @@ input[type=submit] {
 			<table>
 				<tr>
 					<th>Plan Name*</th>
-					<td><input type="text" name="planName"></td>
+					<td><input type="text" name="planName" required></td>
 				</tr>
 				<tr>
 					<th>Plan Type*</th>
-					<td><input type="text" name="planType"></td>
+					<td><input type="text" name="planType" required></td>
 				</tr>
 				<tr>
 					<th>Duration*</th>
-					<td><input type="text" name="duration"></td>
+					<td><input type="text" name="duration" required></td>
 				</tr>
 				<tr>
 					<th>Amount*</th>
-					<td><input type="text" name="amount"></td>
+					<td><input type="text" name="amount" required></td>
 				</tr>
 				<tr>
 					<th></th>
