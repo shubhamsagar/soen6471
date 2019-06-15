@@ -55,6 +55,7 @@ public class TicketDetailsController {
 		public String editComment(@PathVariable int ticketId,@RequestParam Map<String,String> reqParam, ModelMap model) {
 			Ticket tkt=ticketService.getTicketById(ticketId);
 			tkt.setComments(reqParam.get("comments"));
+			tkt.setStatus(reqParam.get("status"));
 			ticketService.updateTicket(tkt);
 			return "technicianmain";
 			
