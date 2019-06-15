@@ -22,7 +22,7 @@ import com.asa.CRP.service.TicketService;
 @Controller
 public class LoginController {
 	
-	private Logger logger = Logger.getLogger(CustomerRepresentativeController.class);
+	private Logger logger = Logger.getLogger(LoginController.class);
 	
 	@Autowired
 	private CustomerRepresentativeService customerRepresentativeService;
@@ -64,7 +64,7 @@ public class LoginController {
 				
 				return "technicianmain";
 			}else {
-				return "admin";
+				return "adminmain";
 			}
 		}else {
 			map.addAttribute("userNotFoundError", "true");

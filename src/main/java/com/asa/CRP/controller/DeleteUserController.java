@@ -53,7 +53,7 @@ public class DeleteUserController {
 	public String deleteCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
 		adminService.deleteUser( Integer.valueOf(reqPar.get("cid")));
-	    return "admin";  
+	    return "adminmain";  
 		}else {
 			return "unauthorized";
 		}

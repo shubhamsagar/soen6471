@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.Properties;
@@ -13,11 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
 
+/**
+ * @author Chirag Vora
+ * @version 1.0
+ */
+
 @Controller
-public class CRMainController {
-	
-private Logger logger = Logger.getLogger(CRMainController.class);
-	
+public class AdminMainController {
+	private Logger logger = Logger.getLogger(AdminMainController.class);
+
 	/**
 	 * Properties file loader
 	 */
@@ -27,14 +34,14 @@ private Logger logger = Logger.getLogger(CRMainController.class);
 	 * Property	
 	 */
 	protected Properties property = propertiesLoader.getMiscProperties();
-	
-	@RequestMapping(value = "/crmain", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/adminmain", method = RequestMethod.GET)
 	public String login(HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)) {
-			return "crmain";
+			return "adminmain";
 		}
 		else {
-		return "login";
+			return "login";
 		}
-		}
+	}
 }

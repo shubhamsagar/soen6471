@@ -60,7 +60,7 @@ public class AddPlanController {
 			plan.setPlanDuration(reqPar.get("duration"));
 			plan.setPlanAmount(Integer.valueOf(reqPar.get("amount")));
 			adminService.addPlans(plan);
-			return "admin";
+			return "adminmain";
 		} else {
 			return "unauthorized";
 		}
