@@ -56,7 +56,6 @@ input[type=submit] {
 			<tr>
 				<form action="tickettech" method="get">
 
-
 					<td colspan="2"><input type="submit" value="Manage Tickets"
 						name="operation"> &nbsp;</td>
 			</tr>

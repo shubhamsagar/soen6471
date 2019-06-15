@@ -26,7 +26,6 @@ input[type=submit] {
 	margin: 3px 1px;
 	cursor: pointer;
 }
-
 hr {
 	margin-top: 100px;
 }

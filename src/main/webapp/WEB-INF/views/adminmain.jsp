@@ -45,7 +45,6 @@ input[type=submit] {
 	<hr>
 	<br>
 	<br>
-
 	<center>
 
 		<i class='fas fa-users' style='font-size: 24px'>&nbsp;&nbsp;&nbsp;<font

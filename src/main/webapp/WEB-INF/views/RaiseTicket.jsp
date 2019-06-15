@@ -25,7 +25,6 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
-
 textarea {
 	width: 500px;
 	height: 150px;

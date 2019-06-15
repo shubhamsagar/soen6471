@@ -15,8 +15,13 @@ hr {
 	margin-top: 100px;
 }
 
+tr:first-child {
+	font-weight: bold;
+	background-color: #C6C9C4;
+}
+
 body {
-	background-image: url("/CRP/images/back.jpg");
+	background-image: url("/CollegeProject/images/back.jpg");
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
@@ -67,6 +72,7 @@ input[type=submit] {
 					<c:when test="${customerSearchStatus eq 'RESULT_FOUND'}">
 						<table>
 							<tr>
+								<td>Id</td>
 								<td>FirstName</td>
 								<td>LastName</td>
 								<td>Email</td>
