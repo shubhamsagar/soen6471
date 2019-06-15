@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.asa.CRP.commons.SearchBy"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -55,10 +54,10 @@ input[type=submit] {
 			<tr>
 				<form action="tickettech" method="get">
 
-					<td colspan="2"><input type="submit" value="Manage Tickets"
-						name="operation"> &nbsp;</td>
+					 <div id="button1" class="col-md-6">
+            <input class="b1" type="submit" value="Manage Tickets" name="operation">
+          </div>s
 			</tr>
-
 			</form>
 		</table>
 	</center>

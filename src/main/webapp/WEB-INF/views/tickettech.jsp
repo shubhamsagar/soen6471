@@ -1,79 +1,74 @@
 <%@page language="java" contentType="text/html;charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<style>
-body {
-	background-image: url("/CRP/images/back.jpg");
-	background-size: 1400px 700px;
-	background-repeat: no-repeat;
-}
+  pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <style>
+      .bs-example{
+        margin-top: 20px;
+        margin-left: 250px;
+        margin-right: 250px;
+        margin-bottom: 50px;
+        background-color: cornsilk;
 
-tr:first-child {
-	font-weight: bold;
-	background-color: #C6C9C4;
-}
+      }
+      .main{
+      	overflow: hidden;
+      	background-color: antiquewhite;
+      	padding-bottom:485px;
+      }
+      table {
+      	padding-top:50px;
+        border-collapse: collapse;
+        width: 50%;
+      }
+      th {
+        height: 50px;
 
-hr {
-	margin-top: 100px;
-}
-input[type=submit] {
-	background-color: #C6C9C4;
-	border: none;
-	color: white;
-	padding: 6px 28px;
-	text-decoration: none;
-	margin: 3px 1px;
-	cursor: pointer;
-}
-</style>
+      }
+      .heading{
+      	text-align:center;
+      	margin-top:50px;
+      	padding-top:50px:
+      }
+      </style>
 
-</head>
-<body>
-	<table>
-		<tr>
-			<th>
-				<form action="/CustomerRepresentativePortal/backtomain" method="get">
-					<input type="submit" value="Main Page">
-				</form>
-			</th>
-			<th>
-				<form action="/CustomerRepresentativePortal/logout" method="get">
-					<input type="submit" value="Logout">
-				</form>
-			</th>
-		</tr>
-	</table>
-	<hr>
-	<br>
-	<br>
-	<center>
-
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      </style>
+      </head>
+      <body>
+	  <div class="main">
+	  <div class="heading">
 		<h3>Available Tickets</h3>
-
-		<table>
-			<tr>
-				<td>ID</td>
-				<td>Date</td>
-				<td>Issue</td>
-				<td>Raised By</td>
-				<td>Status</td>
-			</tr>
-			<c:forEach items="${viewTickets}" var="ticket">
-				<tr>
-					<td>${ticket.ticketId}</td>
-					<td>${ticket.date}</td>
-					<td>${ticket.issue}</td>
-					<td>${ticket.raisedBy}</td>
-					<td>${ticket.status}</td>
-				</tr>
-			</c:forEach>
-		</table>
-
-	</center>
-	<hr>
-</body>
+	  </div>
+      <div class="bs-example">
+          <table class="table table-stripe">
+              <thead>
+                  <tr>
+                      <th>Ticket</th>
+                      <th>Representative</th>
+                      <th>User</th>
+                      <th>Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <c:forEach items="${tickettech}" var = "user">
+                  <tr>
+                      <td><a href="ticketdetails/${user.ticketId}">${user.ticketId}</a></td>
+                      <td>${user.raisedBy}</td>
+                      <td>${user.raisedFor}</td>
+                      <td>${user.status}<td>
+                  </tr>
+                </c:forEach>
+            </tbody>
+          </table>
+      </div>
+	  </div>
+  </body>
 </html>

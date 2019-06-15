@@ -36,6 +36,4 @@ public class LogoutController {
 	 return new ModelAndView("redirect:/login");
 		
 	}
-
-
 }

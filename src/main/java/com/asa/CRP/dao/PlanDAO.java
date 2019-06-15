@@ -22,3 +22,5 @@ public interface PlanDAO {
 	public List<Plan> listPlanByAmount(Plan plan);
 	
 }
+
+
