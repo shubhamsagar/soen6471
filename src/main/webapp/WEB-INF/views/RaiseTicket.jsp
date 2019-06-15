@@ -9,7 +9,6 @@
 hr {
 	margin-top: 100px;
 }
-
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;
@@ -25,7 +24,6 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
-
 textarea {
 	width: 500px;
 	height: 150px;

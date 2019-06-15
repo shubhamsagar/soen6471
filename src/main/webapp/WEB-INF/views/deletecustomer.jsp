@@ -2,19 +2,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Delete Customer</title>
 <style type="text/css">
 body {
-	background-image: url("/CRP/images/back.jpg");
+	background-image: url("/CollegeProject/images/back.jpg");
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
 
 hr {
 	margin-top: 100px;
+}
+tr:first-child {
+	font-weight: bold;
+	background-color: #C6C9C4;
 }
 
 input[type=submit] {
@@ -59,6 +62,7 @@ input[type=submit] {
 					<c:when test="${searchdeletecustomer eq 'RESULT_FOUND'}">
 						<table>
 							<tr>
+								<td>ID</td>
 								<td>FirstName</td>
 								<td>LastName</td>
 								<td>Email</td>

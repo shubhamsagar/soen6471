@@ -9,13 +9,11 @@
 hr {
 	margin-top: 100px;
 }
-
 body {
 	background-image: url("/CRP/images/back.jpg");
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
-
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;

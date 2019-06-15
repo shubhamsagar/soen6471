@@ -15,7 +15,6 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
-
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;
@@ -53,6 +52,5 @@ input[type=submit] {
 		</form>
 	</center>
 	<hr>
-
 </body>
 </html>

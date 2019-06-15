@@ -21,16 +21,11 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
-
-tr:hover {
-	background-color: #f5f5f5;
-}
-
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;
 	color: white;
-	padding: 12px 28px;
+	padding: 4px 28px;
 	text-decoration: none;
 	margin: 3px 1px;
 	cursor: pointer;
@@ -40,14 +35,20 @@ input[type=submit] {
 </head>
 
 <body>
-
-	<form action="/CustomerRepresentativePortal/backtomain" method="get">
-		<input type="submit" value="Main Page">
-	</form>
-	<form action="/CustomerRepresentativePortal/logout" method="get">
-		<input type="submit" value="Logout">
-	</form>
-
+	<table>
+		<tr>
+			<th>
+				<form action="/CustomerRepresentativePortal/backtomain" method="get">
+					<input type="submit" value="Main Page">
+				</form>
+			</th>
+			<th>
+				<form action="/CustomerRepresentativePortal/logout" method="get">
+					<input type="submit" value="Logout">
+				</form>
+			</th>
+		</tr>
+	</table>
 	<hr>
 	<br>
 	<br>
