@@ -64,5 +64,4 @@ private Logger logger = Logger.getLogger(AddCustomerController.class);
 			return "unauthorized";
 		}
 	}
-	
 }
