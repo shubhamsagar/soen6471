@@ -26,12 +26,12 @@ color:black;
 				<tr>
 					<th>LoginId*</th>
 					<td><input type="text" name="login" size=30><font
-						color="red"></font></td>
+						color="red" required></font></td>
 				</tr>
 				<tr>
 					<th>Password*</th>
 					<td><input type="password" name="password" size=30><font
-						color="red"></font></td>
+						color="red" required></font></td>
 				</tr>
 				<tr>
 					<th></th>

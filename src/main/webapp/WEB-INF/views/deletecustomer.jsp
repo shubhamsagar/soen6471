@@ -50,7 +50,7 @@ input[type=submit] {
 
 		<form action="searchdeletecustomer" method="post">
 			<label for="phoneno">Phone No: </label> <input name="phoneno"
-				id="phoneno"> <input type="submit" value="Search" />
+				id="phoneno" required> <input type="submit" value="Search" />
 		</form>
 
 		<c:choose>
