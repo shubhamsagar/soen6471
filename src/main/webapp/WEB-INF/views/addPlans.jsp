@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Delete User</title>
+<title>Add Plan</title>
 <style type="text/css">
 hr {
 	margin-top: 100px;
@@ -46,13 +46,34 @@ input[type=submit] {
 	<br>
 	<br>
 	<center>
-		<form action="deleteUserConfirmation" method="get">
-			<label for="id">CustRepID: </label> <input name="cid" id="custRepID"
-				size="20"><br> &nbsp;&nbsp;<input type="submit"
-				value="Delete" />
-		</form>
+		<form action="addPlanConfirmation" method="GET">
+
+			<font face="Lucida Calligraphy" size=5>Add Plan</font><br>
+			<br>
+			<table>
+				<tr>
+					<th>Plan Name*</th>
+					<td><input type="text" name="planName"></td>
+				</tr>
+				<tr>
+					<th>Plan Type*</th>
+					<td><input type="text" name="planType"></td>
+				</tr>
+				<tr>
+					<th>Duration*</th>
+					<td><input type="text" name="duration"></td>
+				</tr>
+				<tr>
+					<th>Amount*</th>
+					<td><input type="text" name="amount"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>&nbsp;&nbsp;<input type="submit" value="Add"></td>
+				</tr>
+			</table>
 	</center>
 	<hr>
-
+	</form>
 </body>
 </html>
