@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Ticket;
 
-@Repository
+@Repository("TicketDAO")
 public class TicketDAOImpl implements TicketDAO{
 	
 
@@ -51,7 +51,8 @@ public class TicketDAOImpl implements TicketDAO{
 		}
 	}
 
-	@SuppressWarnings("deprecation")	
+	@SuppressWarnings("deprecation")
+	@Override
 	public List<Ticket> listTicket() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
@@ -59,7 +60,7 @@ public class TicketDAOImpl implements TicketDAO{
 		return TicketList;
 	}
 
-	
+	@Override
 	public boolean checkStatus(Ticket givenTkt) {
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -67,7 +68,7 @@ public class TicketDAOImpl implements TicketDAO{
 		Root<Ticket> root = query.from( Ticket.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("status"), "Open"))
+		        builder.equal(root.get("Status"), "Open"))
 		);
 		Ticket tkt = entityManager.createQuery( query ).getSingleResult();
 		if(tkt != null && givenTkt.equals(tkt.getStatus())){
@@ -77,7 +78,7 @@ public class TicketDAOImpl implements TicketDAO{
 		return false;
 	}
 
-	
+	@Override
 	public List<Ticket> getTickectsRaisedByCustomer(Customer givenCustomer) {
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -85,7 +86,7 @@ public class TicketDAOImpl implements TicketDAO{
 		Root<Ticket> root = query.from( Ticket.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("raisedBy"), givenCustomer.getCustId() ))
+		        builder.equal(root.get("Raised_By"), givenCustomer.getCustId() ))
 		    
 		);
 		List<Ticket> tkt = entityManager.createQuery( query ).getResultList();

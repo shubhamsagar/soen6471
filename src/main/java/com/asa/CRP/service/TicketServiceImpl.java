@@ -53,5 +53,4 @@ public class TicketServiceImpl implements TicketService{
 	public List<Ticket> getTickectsRaisedByCustomer(Customer cust) {
 		return this.ticketDAO.getTickectsRaisedByCustomer(cust);
 	}
-
 }

@@ -20,5 +20,5 @@ public interface TicketDAO {
 	public boolean checkStatus(Ticket tkt);
 	
 	public List<Ticket> getTickectsRaisedByCustomer(Customer cust);
-
+	
 }
