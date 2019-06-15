@@ -13,16 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.model.Customer;
-import com.asa.CRP.model.Plan;
 import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.CustomerService;
-import com.asa.CRP.service.PlanService;
 import com.asa.CRP.service.TicketService;
 
 @Controller
 public class ViewUserTicketsRaised {
 
-private Logger logger = Logger.getLogger(CustomerRepresentativeController.class);
+private Logger logger = Logger.getLogger(ViewUserTicketsRaised.class);
 	
 	@Autowired
 	private TicketService ticketService;

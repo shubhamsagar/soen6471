@@ -62,7 +62,7 @@ public class CreateUserController {
 			customerRepresentative.setCrPassword(reqPar.get("password"));
 			customerRepresentative.setCrRole(reqPar.get("crRole"));
 			adminService.createUser(customerRepresentative);
-			return "admin";
+			return "adminmain";
 		} else {
 			return "unauthorized";
 		}

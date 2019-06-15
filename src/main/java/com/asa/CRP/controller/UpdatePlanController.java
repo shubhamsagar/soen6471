@@ -24,7 +24,7 @@ import com.asa.CRP.service.PlanService;
 
 @Controller
 public class UpdatePlanController {
-private Logger logger = Logger.getLogger(CustomerController.class);
+private Logger logger = Logger.getLogger(UpdatePlanController.class);
 	
 	@Autowired
 	private CustomerService customerService;

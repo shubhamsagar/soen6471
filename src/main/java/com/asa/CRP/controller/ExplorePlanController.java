@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.model.Plan;
-import com.asa.CRP.service.CustomerRepresentativeService;
 import com.asa.CRP.service.PlanService;
 
 @Controller
 public class ExplorePlanController {
 
-	private Logger logger = Logger.getLogger(CustomerRepresentativeController.class);
+	private Logger logger = Logger.getLogger(ExplorePlanController.class);
 	
 	@Autowired
 	private PlanService planService;

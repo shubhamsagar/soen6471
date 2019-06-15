@@ -20,7 +20,7 @@ import com.asa.CRP.model.Customer;
 import com.asa.CRP.service.CustomerService;
 
 @Controller
-public class CustomerSerachController {
+public class CustomerSearchController {
 	
 	@Autowired
 	private CustomerService customerService;

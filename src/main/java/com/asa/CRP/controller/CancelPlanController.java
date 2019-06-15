@@ -16,14 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
-import com.asa.CRP.model.Plan;
 import com.asa.CRP.service.CustomerService;
-import com.asa.CRP.service.PlanService;
 
 @Controller
 public class CancelPlanController {
 	
-	private Logger logger = Logger.getLogger(CustomerController.class);
+	private Logger logger = Logger.getLogger(CancelPlanController.class);
 	
 	@Autowired
 	private CustomerService customerService;
