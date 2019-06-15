@@ -42,6 +42,15 @@
    .form-group{
    	margin-left:160px;
    }
+   
+   .statusform-area{
+       width: 80px;
+       height: 40px;
+       border-radius: 0.5rem;
+       color: black;
+       background-color: beige
+   
+   }
 
    .form-area{
    	width: 960px;
@@ -82,6 +91,8 @@
 					<th scope="col">Raised For</th>
 					<th scope="col">Raised By</th>
 					<th scope="col">Issue</th>
+				    <th scope="col">status</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -91,6 +102,7 @@
 					<td>${raisedFor}</td>
 					<td>${raisedBy}</td>
 					<td>${issue}</td>
+					<td><textarea rows="2" cols="50" class="statusform-area" placeholder="${status}" name="status" value=""></textarea></td>
 				</tr>
 			</tbody>
 			</table>
