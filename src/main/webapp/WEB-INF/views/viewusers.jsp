@@ -13,7 +13,6 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
-
 tr:first-child {
 	font-weight: bold;
 	background-color: #C6C9C4;

@@ -7,7 +7,7 @@
 	<title>Plans</title>
 
 	<style>
-		
+	
 		body{
 background-image: url("/CRP/images/back.jpg");
 	background-size: 1400px 700px;

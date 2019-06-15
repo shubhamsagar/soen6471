@@ -20,7 +20,6 @@ tr:first-child {
 hr {
 	margin-top: 100px;
 }
-
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;

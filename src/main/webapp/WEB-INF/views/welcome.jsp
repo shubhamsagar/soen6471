@@ -10,8 +10,7 @@
 	background-repeat: repeat-x;
 	background-repeat: no-repeat;
  }
- 
- </style>
+  </style>
 </head>
 <body>
 <a href="CustomerWelcome.jsp">Welcome</a>

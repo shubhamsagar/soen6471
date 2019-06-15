@@ -7,7 +7,6 @@
 hr {
 	margin-top: 100px;
 }
-
 body {
 	background-image: url("/CRP/images/back.jpg");
 	background-size: 1400px 700px;

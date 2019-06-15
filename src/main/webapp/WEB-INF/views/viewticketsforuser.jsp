@@ -18,7 +18,6 @@ tr:first-child {
 	font-weight: bold;
 	background-color: #C6C9C4;
 }
-
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;

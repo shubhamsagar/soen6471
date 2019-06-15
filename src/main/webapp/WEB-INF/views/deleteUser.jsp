@@ -52,6 +52,5 @@ input[type=submit] {
 		</form>
 	</center>
 	<hr>
-
 </body>
 </html>

@@ -15,7 +15,6 @@ body {
 hr {
 	margin-top: 100px;
 }
-
 tr:first-child {
 	font-weight: bold;
 	background-color: #C6C9C4;

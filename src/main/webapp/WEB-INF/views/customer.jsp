@@ -42,8 +42,7 @@ input[type=submit]{
   text-decoration: none;
   margin: 3px 1px;
   cursor: pointer;
- 
-}
+ }
 
 </style>
 </head>

@@ -10,7 +10,7 @@ body {
 	background-image: url("/CRP/images/callcenter.jpg");
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
-	
+
 }
 h1{ 
 margin-top:200px;

@@ -12,7 +12,6 @@ tr:first-child {
 	font-weight: bold;
 	background-color: #C6C9C4;
 }
-
 body {
 	background-image: url("/CRP/images/back.jpg");
 	background-size: 1400px 700px;
