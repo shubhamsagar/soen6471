@@ -1,47 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<style type="text/css">
-body {
-	background-image: url("/CollegeProject/images/callcenter.jpg");
-	background-size: 1400px 700px;
-	background-repeat: no-repeat;
-	
-}
-h1{ 
-margin-top:200px;
-margin-right:5px;
-}
-a{
-color:black;
-}
-</style>
+<title>Login Page</title>
+
 </head>
 <body>
-<a href="CustomerWelcome.jsp">Welcome</a>
-<a href="CustomerLogin.jsp">Login</a>
-<h1><center>Login</center></h1>
-<form action="">
-<center><table>
+	<form action="customerRepresentativeLoginCheck" method="post">		
+			<h1>Login</h1>
+			<table>
 				<tr>
 					<th>LoginId*</th>
-					<td><input type="text" name="login" size=30><font
-						color="red"></font></td>
+					<td><input type="text" name="login" size=30></td>
+					<c:if test="${not empty userNameError}">
+						<c:if test="${userNameError eq 'true'}">
+							<td>The user Name is empty</td>
+						</c:if>
+					</c:if>
 				</tr>
 				<tr>
 					<th>Password*</th>
-					<td><input type="password" name="password" size=30><font
-						color="red"></font></td>
+					<td><input type="password" name="password" size=30></td>
+					<c:if test="${not empty userPassowrdError}">
+						<c:if test="${userPassowrdError eq 'true'}">
+							<td>The user password is empty</td>
+						</c:if>
+					</c:if>
 				</tr>
 				<tr>
-					
-					<td><input type="submit" name="operation" value="SignIn"></td>
+					<th></th>
+					<td colspan="2"><input type="submit" name="operation">
+						&nbsp; <input type="submit" name="operation"> &nbsp;</td>
+					<c:if test="${not empty userNotFoundError}">
+						<c:if test="${userNotFoundError eq 'true'}">
+							<td>The user was not found in the database</td>
+						</c:if>
+					</c:if>
 				</tr>
-				<tr>								
-					<td><b><a href="" >Forget my password</a></b>&nbsp;</td>
+				<tr>
+					<th></th>
+					<td><b>Forgot my password</b></a>&nbsp;</td>
 				</tr>
-			</table></center></form>
+			</table>
+	</form>
 </body>
-</html>
