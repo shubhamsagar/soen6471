@@ -57,6 +57,12 @@ public class Ticket implements Serializable{
 	@Column(name="Status", length = 30)
 	private String status;
 	
+	/** The Comments. */
+	@Column(name="Comments", length = 30)
+   private String comments;
+
+
+	
 	public Ticket(){
 		
 	}
@@ -175,6 +181,19 @@ public class Ticket implements Serializable{
 	 */
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public String getComments() {
+		return comments;
+	}
+
+	/**
+	 * Sets the status.
+	 *
+	 * @param status the status to set
+	 */
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
 }
