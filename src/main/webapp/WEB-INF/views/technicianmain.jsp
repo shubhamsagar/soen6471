@@ -20,6 +20,7 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
+
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;
@@ -54,9 +55,10 @@ input[type=submit] {
 			<tr>
 				<form action="tickettech" method="get">
 
-					 <div id="button1" class="col-md-6">
-            <input class="b1" type="submit" value="Manage Tickets" name="operation">
-          </div>s
+					<div id="button1" class="col-md-6">
+						<input class="b1" type="submit" value="Manage Tickets"
+							name="operation">
+					</div>
 			</tr>
 			</form>
 		</table>
