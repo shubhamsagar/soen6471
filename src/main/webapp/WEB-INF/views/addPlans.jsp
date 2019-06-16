@@ -5,6 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Plan</title>
+<SCRIPT language=Javascript>
+      
+      function isNumber(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+      
+   </SCRIPT>
 <style type="text/css">
 hr {
 	margin-top: 100px;
@@ -63,15 +75,15 @@ input[type=submit] {
 				</tr>
 				<tr>
 					<th>Amount*</th>
-					<td><input type="text" name="amount" required></td>
+					<td><input type="text" name="amount" onkeypress="return isNumber(event)" onpaste="return false" required></td>
 				</tr>
 				<tr>
 					<th></th>
 					<td>&nbsp;&nbsp;<input type="submit" value="Add"></td>
 				</tr>
 			</table>
+			</form>
 	</center>
 	<hr>
-	</form>
 </body>
 </html>
