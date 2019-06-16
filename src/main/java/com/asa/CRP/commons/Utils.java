@@ -11,5 +11,7 @@ public class Utils {
 		}
 		return false;
 	}
-
+	public static boolean isNumber(String str) {
+	    return str.matches("-?\\d+(\\.\\d+)?");
+	}
 }

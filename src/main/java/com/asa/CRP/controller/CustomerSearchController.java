@@ -48,21 +48,27 @@ public class CustomerSearchController {
 	
 	@RequestMapping(value = "/customersearch", method = RequestMethod.POST)
 	public String findCustomer(@RequestParam Map<String,String> reqPar,HttpSession httpSession, ModelMap model) {
-		List<Customer> cust=customerService.searchCustomer(SearchBy.valueOf(reqPar.get("searchBy")).getDbName(), reqPar.get("SearchText"));
+		
 		if(Utils.validateCRSession(httpSession)){
+			
+		if(reqPar.get("searchBy").equals("PHONE") && Utils.isNumber(reqPar.get("SearchText"))==true) {
+		List<Customer> cust=customerService.searchCustomer(SearchBy.valueOf(reqPar.get("searchBy")).getDbName(), reqPar.get("SearchText"));
 		if(cust!=null && cust.size() > 0) {
-			model.addAttribute("customerSearchStatus", "RESULT_FOUND"); 
+			model.addAttribute("customerSearchStatus", "RESULT_FOUND");
 			model.addAttribute("customerSearchResult", cust);
 		  }
 		else {
-			model.addAttribute("customerSearchStatus", "RESULTS_NOT_FOUND"); 
+			model.addAttribute("customerSearchStatus", "RESULTS_NOT_FOUND");
 			model.addAttribute("NoUserFoundInREQUEST","No User");
 			model.addAttribute("customersearchResult", "NO CUSTOMER WITH GIVEN DETAILS FOUND!");
 		}
-		return "customersearch";
-	}
-		else {
-			return "unauthorized";
-			}
+			}else {
+			model.addAttribute("InvalidNumber","Enter a valid number");
 		}
+		return "customersearch";
+		}
+			else {
+				return "unauthorized";
+				}
+}
 }
