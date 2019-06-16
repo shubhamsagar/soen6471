@@ -69,7 +69,7 @@ input[type=submit] {
 			<c:when test="${not empty customerSearchStatus}">
 				<c:choose>
 					<c:when test="${customerSearchStatus eq 'RESULT_FOUND'}">
-						<table>
+					 	<table>
 							<tr>
 								<td>Id</td>
 								<td>FirstName</td>
@@ -89,14 +89,13 @@ input[type=submit] {
 							</c:forEach>
 						</table>
 					</c:when>
-
 					<c:otherwise>
-						<p>No user found in search</p>
+						<p item= "${InvalidNumber}" > ${InvalidNumber}</p>	
 					</c:otherwise>
 				</c:choose>
 			</c:when>
 			<c:otherwise>
-
+	        <p>${customersearchResult}</p>
 			</c:otherwise>
 		</c:choose>
 

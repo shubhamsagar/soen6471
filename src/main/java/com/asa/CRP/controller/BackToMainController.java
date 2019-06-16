@@ -48,10 +48,10 @@ private Logger logger = Logger.getLogger(BackToMainController.class);
 		CustomerRepresentative cr = customerRepresentativeService.getCustomerRepresentativeById(Integer.valueOf(httpSession.getAttribute("crId").toString()));
 		if(Utils.validateCRSession(httpSession)){
 			
-		if(cr.getCrRole().equals(CRRoles.CUSTOMER_REPRESENTATIVE.name())) {
+		if(cr.getCrRole().equals(CRRoles.CUSTOMER_REPRESENTATIVE.getDbName())) {
 			return new ModelAndView("redirect:/crmain");
 				}
-		else if(cr.getCrRole().equals(CRRoles.TECHNICIAN.name())) {	
+		else if(cr.getCrRole().equals(CRRoles.TECHNICIAN.getDbName())) {	
 			return new ModelAndView("redirect:/technicianmain");
 			
 		}else {
@@ -61,6 +61,5 @@ private Logger logger = Logger.getLogger(BackToMainController.class);
 	}else {
 		return new ModelAndView("redirect:/unauthorized");
 		}
-	}
-	
+	}	
 }
