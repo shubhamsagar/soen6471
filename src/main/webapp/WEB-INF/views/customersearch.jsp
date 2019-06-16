@@ -90,12 +90,12 @@ input[type=submit] {
 						</table>
 					</c:when>
 					<c:otherwise>
-						<p item= "${InvalidNumber}" > ${InvalidNumber}</p>	
+			        	<p>${customersearchResult}</p>
 					</c:otherwise>
 				</c:choose>
 			</c:when>
 			<c:otherwise>
-	        <p>${customersearchResult}</p>
+				<p> ${InvalidNumber}</p>	
 			</c:otherwise>
 		</c:choose>
 
