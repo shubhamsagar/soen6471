@@ -65,7 +65,16 @@ private Logger logger = Logger.getLogger(AddCustomerController.class);
 			customer.setCustFirstName(reqPar.get("firstname"));
 			customer.setCustLastName(reqPar.get("lastname"));
 			customer.setCustPlan(plan.getPlanID());
+			
+			if(Utils.isNumber(reqPar.get("phoneno"))==true && reqPar.get("phoneno")!=null && reqPar.get("phoneno").length()==10) {
 			customer.setPhoneNumber(Integer.valueOf(reqPar.get("phoneno")));
+			}
+			else {
+				model.addAttribute("InvalidNumber", "Enter a valid number");
+				List<Plan> list = planService.listPlan();
+				model.addAttribute("planList", list);
+				return "addcustomer";
+			}
 			customer.setTicketRaised(0);
 			customerService.addCustomer(customer);
 			return "crmain";

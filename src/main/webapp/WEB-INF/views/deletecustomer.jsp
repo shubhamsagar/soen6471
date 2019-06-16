@@ -6,18 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Delete Customer</title>
-<SCRIPT language=Javascript>
-      
-      function isNumber(evt)
-      {
-         var charCode = (evt.which) ? evt.which : event.keyCode
-         if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
-
-         return true;
-      }
-      
-   </SCRIPT>
 <style type="text/css">
 body {
 	background-image: url("/CollegeProject/images/back.jpg");
@@ -65,11 +53,18 @@ input[type=submit] {
 	<center>
 
 		<form action="searchdeletecustomer" method="post">
-			<label for="phoneno">Phone No: </label> <input name="phoneno"
-				id="phoneno" onkeypress="return isNumber(event)" onpaste="return false" required> <input type="submit" value="Search" />
-		</form>
-
-		<c:choose>
+		<table>
+		<tr>
+					<th>Phone Number*</th>
+					<td><input type="number" name="phoneno"
+						placeholder="your phonenumber" onpaste="return false" required></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td colspan="2"><input type="submit" value="Search"></td>
+				</tr>
+			</table>
+				<c:choose>
 			<c:when test="${not empty searchdeletecustomer}">
 				<c:choose>
 					<c:when test="${searchdeletecustomer eq 'RESULT_FOUND'}">
@@ -93,14 +88,13 @@ input[type=submit] {
 							</c:forEach>
 						</table>
 					</c:when>
-
 					<c:otherwise>
-						<p>No user found in search</p>
+		            <p>${searchdeleteResult}</p>
 					</c:otherwise>
 				</c:choose>
 			</c:when>
 			<c:otherwise>
-
+		<p>${InvalidNumber}</p>
 			</c:otherwise>
 		</c:choose>
 

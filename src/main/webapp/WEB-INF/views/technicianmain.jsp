@@ -53,7 +53,7 @@ input[type=submit] {
 	<center>
 		<table>
 			<tr>
-				<form action="tickettech" method="get">
+				<form action="/CustomerRepresentativePortal/tickettech" method="get">
 
 					<div id="button1" class="col-md-6">
 						<input class="b1" type="submit" value="Manage Tickets"

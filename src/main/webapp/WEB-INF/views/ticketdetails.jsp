@@ -1,6 +1,10 @@
-<%@page language="java" contentType="text/html;charset=ISO-8859-1"
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.asa.CRP.commons.TicketStatus"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	pageContext.setAttribute("statusList", TicketStatus.values());
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en" dir="ltr">
 <head>
@@ -71,8 +75,8 @@ th {
 								<th scope="col">Raised For</th>
 								<th scope="col">Raised By</th>
 								<th scope="col">Issue</th>
+								<th scope="col">Previous Comment</th>
 								<th scope="col">status</th>
-
 							</tr>
 						</thead>
 						<tbody>
@@ -82,8 +86,13 @@ th {
 								<td>${raisedFor}</td>
 								<td>${raisedBy}</td>
 								<td>${issue}</td>
-								<td><textarea rows="2" cols="50" class="statusform-area"
-										placeholder="${status}" name="status" value=""></textarea></td>
+								<td>${comments}</td>
+								<td> <select name="status"
+				id="status">
+				<c:forEach var="statusList" items="${statusList}">
+					<option value="${statusList.getDbName()}">${statusList.getDbName()}</option>
+				</c:forEach>
+			</select></td>
 							</tr>
 						</tbody>
 					</table>
@@ -94,7 +103,7 @@ th {
 					</div>
 					<div class="form-group">
 						<textarea rows="5" cols="100" class="form-area"
-							placeholder=" Type Issue here" name="comments" value=""></textarea>
+							placeholder=" Type comment here" name="comments" value=""></textarea>
 					</div>
 
 					<div class="form-group3">

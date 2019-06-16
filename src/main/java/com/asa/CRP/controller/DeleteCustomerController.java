@@ -44,9 +44,9 @@ public class DeleteCustomerController {
 	}
 	
 	@RequestMapping(value = "/searchdeletecustomer", method = RequestMethod.POST)
-	public String findCustomer(@RequestParam int phoneno, ModelMap model) {
-
-		List<Customer> cust=customerService.searchCustomer(SearchBy.PHONE.getDbName(), Integer.toString(phoneno));
+	public String findCustomer(@RequestParam Map<String,String> reqPar, ModelMap model) {
+		if(reqPar.get("phoneno").length()==10) {
+		List<Customer> cust=customerService.searchCustomer(SearchBy.PHONE.getDbName(),reqPar.get("phoneno"));
 		if(cust!=null) {
 			model.addAttribute("searchdeletecustomer", "RESULT_FOUND"); 
 			model.addAttribute("searchdeleteResult", cust);
@@ -54,6 +54,9 @@ public class DeleteCustomerController {
 		else {
 			model.addAttribute("searchdeletecustomer", "RESULTS_NOT_FOUND"); 
 			model.addAttribute("searchdeleteResult", "NO CUSTOMER WITH GIVEN PHONE FOUND!");
+		}}
+		else {
+		model.addAttribute("InvalidNumber", "Enter a valid number");
 		}
 		  return "deletecustomer";
 	}

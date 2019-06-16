@@ -19,6 +19,7 @@ import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Plan;
 import com.asa.CRP.model.Ticket;
+import com.asa.CRP.service.CustomerRepresentativeService;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.TicketService;
 
@@ -28,6 +29,13 @@ public class TicketDetailsController {
 	
 	    @Autowired
      	private TicketService ticketService;
+	    
+	    @Autowired
+	    private CustomerService customerService;
+	    
+
+	    @Autowired
+	    private CustomerRepresentativeService customerRepresentativeService;
 	
 	    private static final Logger log = Logger.getLogger(CustomerRepresentativeController.class);	
 		/**
@@ -43,9 +51,10 @@ public class TicketDetailsController {
 		public String list(@PathVariable int ticketId, ModelMap model) {
 			Ticket tkt=ticketService.getTicketById(ticketId);
 			model.addAttribute("ticketId",tkt.getTicketId());
-			model.addAttribute("raisedBy",tkt.getRaisedBy());
-			model.addAttribute("raisedFor",tkt.getRaisedFor());
+			model.addAttribute("raisedBy",customerRepresentativeService.getCustomerRepresentativeById(tkt.getRaisedBy()).getCrFirstName()+" "+customerRepresentativeService.getCustomerRepresentativeById(tkt.getRaisedBy()).getCrLastName());
+			model.addAttribute("raisedFor",customerService.getCustomerById(tkt.getRaisedBy()).getCustFirstName()+" "+customerService.getCustomerById(tkt.getRaisedBy()).getCustLastName());
 			model.addAttribute("issue",tkt.getIssue());
+			model.addAttribute("comments",tkt.getComments());
 			model.addAttribute("status",tkt.getStatus());
 			return "ticketdetails";
 			
