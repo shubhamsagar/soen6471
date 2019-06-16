@@ -5,11 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Page</title>
+<title>Add customer</title>
+<SCRIPT language=Javascript>
+      
+      function isNumber(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+      
+   </SCRIPT>
 <style type="text/css">
 hr {
 	margin-top: 100px;
 }
+
 body {
 	background-image: url("/CRP/images/back.jpg");
 	background-size: 1400px 700px;
@@ -64,10 +77,10 @@ input[type=submit] {
 				</tr>
 				<tr>
 					<th>Phone Number</th>
-					<td><input type="text" name="phoneno" size=30></td>
+					<td><input type="text" name="phoneno" onkeypress="return isNumberKey(event)" onpaste="return false" maxlength=10></td>
 				</tr>
 				<tr>
-					<label for="plan">Plan :</label> 
+					<label for="plan">Plan :</label>
 					<select name="plan" id="plan">
 						<c:forEach var="planList" items="${planList}">
 							<option value="${planList.planName}">${planList.planName}</option>

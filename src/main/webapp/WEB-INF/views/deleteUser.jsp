@@ -5,6 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Delete User</title>
+<SCRIPT language=Javascript>
+      
+      function isNumber(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+      
+   </SCRIPT>
 <style type="text/css">
 hr {
 	margin-top: 100px;
@@ -15,6 +27,7 @@ body {
 	background-size: 1400px 700px;
 	background-repeat: no-repeat;
 }
+
 input[type=submit] {
 	background-color: #C6C9C4;
 	border: none;
@@ -47,8 +60,8 @@ input[type=submit] {
 	<center>
 		<form action="deleteUserConfirmation" method="get">
 			<label for="id">CustRepID: </label> <input name="cid" id="custRepID"
-				size="20" required><br> &nbsp;&nbsp;<input type="submit"
-				value="Delete" />
+				size="20" onkeypress="return isNumber(event)" onpaste="return false" required><br> &nbsp;&nbsp;<input
+				type="submit" value="Delete" />
 		</form>
 	</center>
 	<hr>

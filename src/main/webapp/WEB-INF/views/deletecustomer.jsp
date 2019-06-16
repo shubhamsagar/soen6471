@@ -2,9 +2,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Delete Customer</title>
+<SCRIPT language=Javascript>
+      
+      function isNumber(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+      
+   </SCRIPT>
 <style type="text/css">
 body {
 	background-image: url("/CollegeProject/images/back.jpg");
@@ -53,7 +66,7 @@ input[type=submit] {
 
 		<form action="searchdeletecustomer" method="post">
 			<label for="phoneno">Phone No: </label> <input name="phoneno"
-				id="phoneno" required> <input type="submit" value="Search" />
+				id="phoneno" onkeypress="return isNumber(event)" onpaste="return false" required> <input type="submit" value="Search" />
 		</form>
 
 		<c:choose>
