@@ -6,18 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Delete User</title>
 <SCRIPT language=Javascript>
-      
-      function isNumber(evt)
-      {
-         var charCode = (evt.which) ? evt.which : event.keyCode
-         if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
-
-         return true;
-      }
-      
-   </SCRIPT>
-<style type="text/css">
+	function phoneNumber(inputText) {
+		var regex = /^\d{10}$/;
+		if (regex.test(inputText.phoneno.value)) {
+			return true;
+		} else {
+			alert("Please enter a valid Phone Number");
+			phoneno.value = '';
+			return false;
+		}
+	}
+</SCRIPT><style type="text/css">
 hr {
 	margin-top: 100px;
 }
@@ -58,9 +57,9 @@ input[type=submit] {
 	<br>
 	<br>
 	<center>
-		<form action="deleteUserConfirmation" method="get">
+		<form action="deleteUserConfirmation" method="get" onSubmit="return phoneNumber(this)">
 			<label for="id">CustRepID: </label> <input name="cid" id="custRepID"
-				size="20" onkeypress="return isNumber(event)" onpaste="return false" required><br> &nbsp;&nbsp;<input
+				maxlength=10 onpaste="return false" required><br> &nbsp;&nbsp;<input
 				type="submit" value="Delete" />
 		</form>
 	</center>
