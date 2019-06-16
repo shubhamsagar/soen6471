@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
+import com.asa.CRP.commons.TicketStatus;
 import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Ticket;
@@ -76,7 +77,7 @@ public class RaiseTicketController {
 		if(Utils.validateCRSession(httpSession)){
 			if(reqPar.containsKey("customerID") && reqPar.containsKey("issue")){
 				Ticket t = ticketService.createTicket(
-						new Ticket(new Date(System.currentTimeMillis()), reqPar.get("issue"), (Integer)httpSession.getAttribute("crId"), Integer.valueOf(reqPar.get("customerID")), "open"));
+						new Ticket(new Date(System.currentTimeMillis()), reqPar.get("issue"), (Integer)httpSession.getAttribute("crId"), Integer.valueOf(reqPar.get("customerID")), TicketStatus.NEW.getDbName()));
 				model.addAttribute("ticket", t);
 				return "crmain";
 			}

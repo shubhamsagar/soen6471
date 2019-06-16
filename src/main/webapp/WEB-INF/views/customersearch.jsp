@@ -64,7 +64,6 @@ input[type=submit] {
 			</select> <label for="searchText">Search Term</label> <input name="SearchText"
 				id="searchText"> <input type="submit" value="Submit" />
 		</form>
-
 		<c:choose>
 			<c:when test="${not empty customerSearchStatus}">
 				<c:choose>

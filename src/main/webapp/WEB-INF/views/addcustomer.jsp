@@ -6,18 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add customer</title>
-<SCRIPT language=Javascript>
-	function phoneNumber(inputText) {
-		var regex = /^\d{10}$/;
-		if (regex.test(inputText.phoneno.value)) {
-			return true;
-		} else {
-			alert("Please enter a valid Phone Number");
-			phoneno.value = '';
-			return false;
-		}
-	}
-</SCRIPT>
 <style type="text/css">
 hr {
 	margin-top: 100px;
@@ -82,9 +70,8 @@ input[type=submit] {
 				</tr>
 				<tr>
 					<th>Phone Number*</th>
-					<td><input type="text" name="phoneno"
-						placeholder="your phonenumber" onpaste="return false" maxlength=10
-						required></td>
+					<td><input type="number" name="phoneno"
+						placeholder="your phonenumber" onpaste="return false" required></td>
 				</tr>
 				<tr>
 					<label for="plan">Plan :</label>
@@ -104,6 +91,7 @@ input[type=submit] {
 					<td colspan="2"><input type="submit" value="Add customer"></td>
 				</tr>
 			</table>
+				<p>${InvalidNumber}</p>
 		</form>
 	</center>
 	<hr>
