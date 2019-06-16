@@ -55,11 +55,11 @@ public class LoginController {
 			cr = customerRepresentativeService.getCustomerRepresentativeByUserName(cr);
 			httpSession.setAttribute("crLoggedIn", 1);
 			httpSession.setAttribute("crId", cr.getId());
-			System.out.println("Role is" + cr.getCrRole() + CRRoles.CUSTOMER_REPRESENTATIVE);
-			if(cr.getCrRole().equals(CRRoles.CUSTOMER_REPRESENTATIVE.name())) {
+			System.out.println("Role is" + cr.getCrRole() + CRRoles.CUSTOMER_REPRESENTATIVE.getDbName());
+			if(cr.getCrRole().equals(CRRoles.CUSTOMER_REPRESENTATIVE.getDbName())) {
 				return "crmain";
 			}
-			else if(cr.getCrRole().equals(CRRoles.TECHNICIAN.name())) {
+			else if(cr.getCrRole().equals(CRRoles.TECHNICIAN.getDbName())) {
 				System.out.println("Ticket is" + ticketService.listTicket().size() +" ---- "+ ticketService.listTicket().toString());
 				
 				return "technicianmain";

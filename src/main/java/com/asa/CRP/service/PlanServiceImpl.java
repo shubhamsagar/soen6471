@@ -48,8 +48,7 @@ public class PlanServiceImpl implements PlanService{
 
 	@Transactional
 	public Plan getPlanByName(Plan plan) {
-		this.planDAO.getPlanByName(plan);
-		return null;
+		return this.planDAO.getPlanByName(plan);
 	}
 
 	@Transactional
