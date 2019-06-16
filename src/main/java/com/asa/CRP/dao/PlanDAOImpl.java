@@ -61,6 +61,7 @@ public class PlanDAOImpl implements PlanDAO{
 
 	public Plan getPlanByName(Plan givenPlan) {
 		Plan plan = new Plan();
+		System.out.println("Plan is:" + givenPlan.getPlanName());
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Plan> query = builder.createQuery( Plan.class );
@@ -71,6 +72,7 @@ public class PlanDAOImpl implements PlanDAO{
 		    )
 		);
 		plan = entityManager.createQuery( query ).getSingleResult();
+		System.out.println(plan==null);
 		return plan;
 	}
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -66,8 +67,12 @@ input[type=submit] {
 					<td><input type="text" name="phoneno" size=30></td>
 				</tr>
 				<tr>
-					<th>Plan</th>
-					<td><input type="text" name="plan" size=30></td>
+					<label for="plan">Plan :</label> 
+					<select name="plan" id="plan">
+						<c:forEach var="planList" items="${planList}">
+							<option value="${planList.planName}">${planList.planName}</option>
+						</c:forEach>
+					</select>
 				</tr>
 				<tr>
 					<th>Email</th>

@@ -1,3 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.asa.CRP.commons.CRRoles"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%
+	pageContext.setAttribute("roleList", CRRoles.values());
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -64,8 +71,12 @@ input[type=submit] {
 					<td><input type="password" name="password" required></td>
 				</tr>
 				<tr>
-					<th>Role*</th>
-					<td><input type="text" name="crRole" required></td>
+					<label for="role">Roles </label> <select name="role"
+				id="role">
+				<c:forEach var="roleList" items="${roleList}">
+					<option value="${roleList.getDbName()}">${roleList.getDbName()}</option>
+				</c:forEach>
+			</select>
 				</tr>
 				<tr>
 					<th></th>

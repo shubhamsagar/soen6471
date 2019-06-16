@@ -45,7 +45,6 @@ public class CreateUserController {
 	 */
 	protected Properties property = propertiesLoader.getMiscProperties();
 
-
 	@RequestMapping(value = "/createuser", method = RequestMethod.GET)
 	public String createUser(ModelMap model) {
 		return "createUser";
@@ -60,7 +59,7 @@ public class CreateUserController {
 			customerRepresentative.setCrLastName(reqPar.get("lastName"));
 			customerRepresentative.setCrUserName(reqPar.get("userName"));
 			customerRepresentative.setCrPassword(reqPar.get("password"));
-			customerRepresentative.setCrRole(reqPar.get("crRole"));
+			customerRepresentative.setCrRole(reqPar.get("role"));
 			adminService.createUser(customerRepresentative);
 			return "adminmain";
 		} else {
