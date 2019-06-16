@@ -51,7 +51,11 @@ public class CustomerSearchController {
 		
 		if(Utils.validateCRSession(httpSession)){
 			
-		if(reqPar.get("searchBy").equals("PHONE") && Utils.isNumber(reqPar.get("SearchText"))==true) {
+		if(reqPar.get("searchBy").equals(String.valueOf(SearchBy.PHONE)) && Utils.isNumber(reqPar.get("SearchText"))==false) {
+			model.addAttribute("InvalidNumber","Enter a valid number");
+			return "customersearch";
+		}
+		
 		List<Customer> cust=customerService.searchCustomer(SearchBy.valueOf(reqPar.get("searchBy")).getDbName(), reqPar.get("SearchText"));
 		if(cust!=null && cust.size() > 0) {
 			model.addAttribute("customerSearchStatus", "RESULT_FOUND");
@@ -61,9 +65,6 @@ public class CustomerSearchController {
 			model.addAttribute("customerSearchStatus", "RESULTS_NOT_FOUND");
 			model.addAttribute("NoUserFoundInREQUEST","No User");
 			model.addAttribute("customersearchResult", "NO CUSTOMER WITH GIVEN DETAILS FOUND!");
-		}
-			}else {
-			model.addAttribute("InvalidNumber","Enter a valid number");
 		}
 		return "customersearch";
 		}
