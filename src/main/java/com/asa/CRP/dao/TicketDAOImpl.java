@@ -68,7 +68,7 @@ public class TicketDAOImpl implements TicketDAO{
 		Root<Ticket> root = query.from( Ticket.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("Status"), "Open"))
+		        builder.equal(root.get("status"), "Open"))
 		);
 		Ticket tkt = entityManager.createQuery( query ).getSingleResult();
 		if(tkt != null && givenTkt.equals(tkt.getStatus())){
@@ -86,7 +86,7 @@ public class TicketDAOImpl implements TicketDAO{
 		Root<Ticket> root = query.from( Ticket.class );
 		query.select(root).where(
 		    builder.and(
-		        builder.equal(root.get("Raised_By"), givenCustomer.getCustId() ))
+		        builder.equal(root.get("raisedFor"), givenCustomer.getCustId() ))
 		    
 		);
 		List<Ticket> tkt = entityManager.createQuery( query ).getResultList();
