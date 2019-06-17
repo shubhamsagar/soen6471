@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.Properties;
@@ -18,24 +21,35 @@ import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.service.CustomerService;
 
+/**
+ * The Class CancelPlanController.
+ * @author Shivani Panwar
+ * @version 1.0
+ */
 @Controller
 public class CancelPlanController {
 	
+	/** The logger. */
 	private Logger logger = Logger.getLogger(CancelPlanController.class);
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property	
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	/**
+	 * Login.
+	 *
+	 * @param customerID the customer ID
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/cancelplan/{customerID}", method = RequestMethod.GET)
 	public String login(@PathVariable int customerID,HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
@@ -49,6 +63,14 @@ public class CancelPlanController {
 	}
 	
 
+	/**
+	 * List C rs.
+	 *
+	 * @param customerID the customer ID
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/cancelplanconfirmation/{customerID}", method = RequestMethod.GET)
 	public ModelAndView listCRs(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){

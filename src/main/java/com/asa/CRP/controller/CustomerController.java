@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.Properties;
@@ -17,26 +20,36 @@ import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.service.CustomerService;
 
+
+/**
+ * The Class CustomerController.
+ */
 @Controller
 public class CustomerController {
 	
+	/** The logger. */
 	private Logger logger = Logger.getLogger(CustomerController.class);
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property	
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 
 	
 		
+	/**
+	 * List C rs.
+	 *
+	 * @param customerID the customer ID
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/customer/{customerID}", method = RequestMethod.GET)
 	public String listCRs(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){

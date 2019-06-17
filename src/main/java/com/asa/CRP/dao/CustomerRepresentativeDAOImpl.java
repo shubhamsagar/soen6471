@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.dao;
 
 import java.util.List;
@@ -16,35 +19,49 @@ import org.springframework.stereotype.Repository;
 import com.asa.CRP.model.CustomerRepresentative;
 
 /**
- * 
- * @author Shivani
+ * The Class CustomerRepresentativeDAOImpl.
  *
+ * @author Shivani
  */
 
 @Repository
 public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO {
 	
+	/** The logger. */
 	private Logger logger = Logger.getLogger(CustomerRepresentativeDAOImpl.class);
 
+	/** The session factory. */
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#addCustomerRepresentative(com.asa.CRP.model.CustomerRepresentative)
+	 */
 	public void addCustomerRepresentative(CustomerRepresentative cr) {
 		Session session = sessionFactory.getCurrentSession();
 		session.persist(cr);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#updateCustomerRepresentative(com.asa.CRP.model.CustomerRepresentative)
+	 */
 	public void updateCustomerRepresentative(CustomerRepresentative cr) {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(cr);	
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#getCustomerRepresentativeById(int)
+	 */
 	public CustomerRepresentative getCustomerRepresentativeById(int id) {
 		Session session = sessionFactory.getCurrentSession();		
 		CustomerRepresentative cr = (CustomerRepresentative) session.get(CustomerRepresentative.class, new Integer(id));
 		return cr;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#removeCustomerRepresentative(int)
+	 */
 	public void removeCustomerRepresentative(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		CustomerRepresentative cr = (CustomerRepresentative) session.get(CustomerRepresentative.class, new Integer(id));
@@ -54,6 +71,9 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#listCustomerRepresentatives()
+	 */
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<CustomerRepresentative> listCustomerRepresentatives() {
 		Session session = sessionFactory.getCurrentSession();
@@ -61,6 +81,9 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		return UsersList;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#customerRepresentativeLoginCheck(com.asa.CRP.model.CustomerRepresentative)
+	 */
 	public boolean customerRepresentativeLoginCheck(CustomerRepresentative givenCR){
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -86,6 +109,9 @@ public class CustomerRepresentativeDAOImpl implements CustomerRepresentativeDAO 
 		return false;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.CustomerRepresentativeDAO#getCustomerRepresentativeByUserName(com.asa.CRP.model.CustomerRepresentative)
+	 */
 	public CustomerRepresentative getCustomerRepresentativeByUserName(CustomerRepresentative givenCR) {
 		CustomerRepresentative cr = new CustomerRepresentative();
 		EntityManager entityManager = sessionFactory.createEntityManager();

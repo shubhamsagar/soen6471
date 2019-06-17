@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.sql.Date;
@@ -23,27 +26,38 @@ import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.TicketService;
 
+/**
+ * The Class RaiseTicketController.
+ */
 @Controller
 public class RaiseTicketController {
 
+	/** The logger. */
 	private Logger logger = Logger.getLogger(RaiseTicketController.class);
 	
+	/** The ticket service. */
 	@Autowired
 	private TicketService ticketService;
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property	
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	/**
+	 * Gets the raise ticket view.
+	 *
+	 * @param customerId the customer id
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the raise ticket view
+	 */
 	@RequestMapping(value = "/raiseTicket/{customerId}", method = RequestMethod.POST)
 	public String getRaiseTicketView(@PathVariable int customerId, @RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
@@ -60,6 +74,15 @@ public class RaiseTicketController {
 		}
 	}
 	
+	/**
+	 * Raise ticket.
+	 *
+	 * @param custId the cust id
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/raiseNewTicket/{custId}", method = RequestMethod.POST)
 	public String raiseTicket(@PathVariable int custId, @RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){

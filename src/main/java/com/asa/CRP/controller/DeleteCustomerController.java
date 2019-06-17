@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.List;
@@ -23,26 +26,35 @@ import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.TicketService;
 
+
+/**
+ * The Class DeleteCustomerController.
+ */
 @Controller
 public class DeleteCustomerController {
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
 	
+	/** The ticket service. */
 	@Autowired
 	private TicketService ticketService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	
+	/**
+	 * Searh customer.
+	 *
+	 * @param model the model
+	 * @param httpSession the http session
+	 * @return the string
+	 */
 	@RequestMapping(value = "/deletecustomer", method = RequestMethod.GET)
 	public String searhCustomer(ModelMap model,HttpSession httpSession) {
 		if(Utils.validateCRSession(httpSession)){
@@ -52,6 +64,14 @@ public class DeleteCustomerController {
 		}
 	}
 	
+	/**
+	 * Find customer.
+	 *
+	 * @param reqPar the req par
+	 * @param model the model
+	 * @param httpSession the http session
+	 * @return the string
+	 */
 	@RequestMapping(value = "/searchdeletecustomer", method = RequestMethod.POST)
 	public String findCustomer(@RequestParam Map<String,String> reqPar, ModelMap model,HttpSession httpSession) {
 		if(Utils.validateCRSession(httpSession)){
@@ -75,6 +95,14 @@ public class DeleteCustomerController {
 		}
 	}
 
+	/**
+	 * Delete customer.
+	 *
+	 * @param customerID the customer ID
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/deletecustomerconfirmation/{customerID}", method = RequestMethod.GET)
 	public ModelAndView deleteCustomer(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){

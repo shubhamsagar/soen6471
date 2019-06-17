@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  * The Class Customer.
  * 
@@ -25,6 +26,7 @@ public class Customer implements Serializable{
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 2979276523681580807L;
 
+	/** The cust id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name="Customer_Id", length=10, unique = true)

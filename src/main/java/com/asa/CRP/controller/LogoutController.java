@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.Properties;
@@ -13,18 +16,25 @@ import org.springframework.web.servlet.ModelAndView;
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
 
+/**
+ * The Class LogoutController.
+ */
 @Controller
 public class LogoutController {
-/**
-	 * Properties file loader
-	 */
+
+/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property	
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	/**
+	 * Logout.
+	 *
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpSession httpSession, ModelMap model) {
 		

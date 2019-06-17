@@ -75,7 +75,7 @@ input[type=submit] {
 				</tr>
 				<tr>
 					<th>Amount*</th>
-					<td><input type="text" name="amount" onkeypress="return isNumber(event)" onpaste="return false" required></td>
+					<td><input type="text" name="amount" maxlength=4 onkeypress="return isNumber(event)" onpaste="return false" required></td>
 				</tr>
 				<tr>
 					<th></th>

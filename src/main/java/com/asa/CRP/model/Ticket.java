@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  * The Class Tickets.
  *
@@ -63,10 +64,22 @@ public class Ticket implements Serializable{
 
 
 	
+	/**
+	 * Instantiates a new ticket.
+	 */
 	public Ticket(){
 		
 	}
 	
+	/**
+	 * Instantiates a new ticket.
+	 *
+	 * @param date the date
+	 * @param issue the issue
+	 * @param raisedBy the raised by
+	 * @param raisedFor the raised for
+	 * @param status the status
+	 */
 	public Ticket(Date date, String issue, Integer raisedBy, Integer raisedFor, String status){
 		this.date = date;
 		this.issue = issue;
@@ -183,6 +196,11 @@ public class Ticket implements Serializable{
 		this.status = status;
 	}
 	
+	/**
+	 * Gets the comments.
+	 *
+	 * @return the comments
+	 */
 	public String getComments() {
 		return comments;
 	}
@@ -190,7 +208,7 @@ public class Ticket implements Serializable{
 	/**
 	 * Sets the status.
 	 *
-	 * @param status the status to set
+	 * @param comments the new comments
 	 */
 	public void setComments(String comments) {
 		this.comments = comments;

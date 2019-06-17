@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.dao;
 
 import java.util.List;
@@ -16,32 +19,50 @@ import org.springframework.stereotype.Repository;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Ticket;
 
+
+/**
+ * The Class TicketDAOImpl.
+ */
 @Repository("TicketDAO")
 public class TicketDAOImpl implements TicketDAO{
 	
 
+	/** The logger. */
 	private Logger logger = Logger.getLogger(TicketDAOImpl.class);
 
+	/** The session factory. */
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#updateTicket(com.asa.CRP.model.Ticket)
+	 */
 	public void updateTicket(Ticket tkt) {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(tkt);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#getTicketById(int)
+	 */
 	public Ticket getTicketById(int id) {
 		Session session = sessionFactory.getCurrentSession();		
 		Ticket plan = (Ticket) session.get(Ticket.class, new Integer(id));
 		return plan;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#createTicket(com.asa.CRP.model.Ticket)
+	 */
 	public Ticket createTicket(Ticket tkt) {
 		Session session = sessionFactory.getCurrentSession();
 		session.persist(tkt);
 		return tkt;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#removeTicket(int)
+	 */
 	public void removeTicket(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		Ticket tkt = (Ticket) session.get(Ticket.class, new Integer(id));
@@ -51,6 +72,9 @@ public class TicketDAOImpl implements TicketDAO{
 	}
 	
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#listTicket()
+	 */
 	@SuppressWarnings("deprecation")
 	public List<Ticket> listTicket() {
 		Session session = sessionFactory.getCurrentSession();
@@ -60,6 +84,9 @@ public class TicketDAOImpl implements TicketDAO{
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#checkStatus(com.asa.CRP.model.Ticket)
+	 */
 	public boolean checkStatus(Ticket givenTkt) {
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -78,6 +105,9 @@ public class TicketDAOImpl implements TicketDAO{
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.TicketDAO#getTickectsRaisedByCustomer(com.asa.CRP.model.Customer)
+	 */
 	public List<Ticket> getTickectsRaisedByCustomer(Customer givenCustomer) {
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();

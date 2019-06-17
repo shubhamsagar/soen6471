@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+
 /**
  * The Class CustomerRepresentative.
  * 

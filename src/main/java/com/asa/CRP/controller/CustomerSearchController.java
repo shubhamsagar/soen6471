@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.List;
@@ -19,22 +22,30 @@ import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
 import com.asa.CRP.service.CustomerService;
 
+
+/**
+ * The Class CustomerSearchController.
+ */
 @Controller
 public class CustomerSearchController {
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	/**
+	 * Login.
+	 *
+	 * @param model the model
+	 * @param httpSession the http session
+	 * @return the string
+	 */
 	@RequestMapping(value = "/customersearch", method = RequestMethod.GET)
 	public String login(ModelMap model,HttpSession httpSession) {
 		if(Utils.validateCRSession(httpSession)){
@@ -47,6 +58,14 @@ public class CustomerSearchController {
 	}
 
 	
+	/**
+	 * Find customer.
+	 *
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/customersearch", method = RequestMethod.POST)
 	public String findCustomer(@RequestParam Map<String,String> reqPar,HttpSession httpSession, ModelMap model) {
 		
