@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  * The Class Plans.
  * 
@@ -51,6 +52,8 @@ public class Plan implements Serializable{
 	private String planDuration;
 
 	/**
+	 * Gets the plan ID.
+	 *
 	 * @return the planName
 	 */
 	public int getPlanID() {
@@ -59,6 +62,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Sets the plan ID.
+	 *
 	 * @param planID the planID to set
 	 */
 	public void setPlanID(int planID) {
@@ -67,6 +72,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Gets the plan name.
+	 *
 	 * @return the planName
 	 */
 	public String getPlanName() {
@@ -75,6 +82,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Sets the plan name.
+	 *
 	 * @param planName the planName to set
 	 */
 	public void setPlanName(String planName) {
@@ -83,6 +92,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Gets the plan type.
+	 *
 	 * @return the planType
 	 */
 	public String getPlanType() {
@@ -91,6 +102,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Sets the plan type.
+	 *
 	 * @param planType the planType to set
 	 */
 	public void setPlanType(String planType) {
@@ -99,6 +112,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Gets the plan amount.
+	 *
 	 * @return the planAmount
 	 */
 	public int getPlanAmount() {
@@ -107,6 +122,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Sets the plan amount.
+	 *
 	 * @param planAmount the planAmount to set
 	 */
 	public void setPlanAmount(int planAmount) {
@@ -115,6 +132,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Gets the plan duration.
+	 *
 	 * @return the planDuration
 	 */
 	public String getPlanDuration() {
@@ -123,6 +142,8 @@ public class Plan implements Serializable{
 
 
 	/**
+	 * Sets the plan duration.
+	 *
 	 * @param planDuration the planDuration to set
 	 */
 	public void setPlanDuration(String planDuration) {

@@ -1,7 +1,9 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.List;
-import java.util.Properties;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,28 +13,36 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
-import com.asa.CRP.model.Plan;
 import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.TicketService;
 
+
+/**
+ * The Class TicketTechnicianController.
+ */
 @Controller
 public class TicketTechnicianController {
 
+    /** The Constant log. */
     private static final Logger log = Logger.getLogger(TicketTechnicianController.class);
 
+	/** The ticket service. */
 	@Autowired
 	TicketService ticketService;
 	
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
 	/**
-	 * Property	
+	 * Property.
+	 *
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
 	 */
 	
 	@RequestMapping(value="/tickettech", method = RequestMethod.GET)

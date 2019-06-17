@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.List;
@@ -20,26 +23,38 @@ import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.TicketService;
 
+
+/**
+ * The Class ViewUserTicketsRaised.
+ */
 @Controller
 public class ViewUserTicketsRaised {
 
+/** The logger. */
 private Logger logger = Logger.getLogger(ViewUserTicketsRaised.class);
 	
+	/** The ticket service. */
 	@Autowired
 	private TicketService ticketService;
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
-	/**
-	 * Properties file loader 
-	 */
+	
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property	
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 		
+	/**
+	 * List C rs.
+	 *
+	 * @param customerID the customer ID
+	 * @param model the model
+	 * @param httpSession the http session
+	 * @return the string
+	 */
 	@RequestMapping(value = "/viewticketsforuser/{customerID}", method = RequestMethod.GET)
 	public String listCRs(@PathVariable int customerID, ModelMap model, HttpSession httpSession) {
 		if(Utils.validateCRSession(httpSession)){

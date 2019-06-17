@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
-import com.asa.CRP.service.AdminService;
+import com.asa.CRP.service.CustomerRepresentativeService;
 
 /**
+ * The Class DeleteUserController.
+ *
  * @author Chirag Vora
  * @version 1.0
  */
@@ -28,22 +30,27 @@ import com.asa.CRP.service.AdminService;
 @Controller
 public class DeleteUserController {
 	
+	/** The logger. */
 	private Logger logger = Logger.getLogger(DeleteUserController.class);
 	
+	/** The customer representative service. */
 	@Autowired
-	private AdminService adminService;
+	private CustomerRepresentativeService customerRepresentativeService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 
 
+	/**
+	 * Delete user.
+	 *
+	 * @param model the model
+	 * @param httpSession the http session
+	 * @return the string
+	 */
 	@RequestMapping(value = "/deleteuser", method = RequestMethod.GET)
 	public String deleteUser(ModelMap model,HttpSession httpSession) {
 		if(Utils.validateCRSession(httpSession)){			
@@ -53,10 +60,24 @@ public class DeleteUserController {
 		}
 	}
 	
+	/**
+	 * Delete CR.
+	 *
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/deleteUserConfirmation", method = RequestMethod.GET)
 	public String deleteCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
-		adminService.deleteUser( Integer.valueOf(reqPar.get("cid")));
+			int id=Integer.valueOf(reqPar.get("cid"));
+			if(customerRepresentativeService.getCustomerRepresentativeById(id)!=null) {
+				customerRepresentativeService.removeCustomerRepresentative(id);
+			}else {
+				model.addAttribute("InvalidID", "User Does Not Exist");
+				return "deleteUser";
+			}
 	    return "adminmain";  
 		}else {
 			return "unauthorized";

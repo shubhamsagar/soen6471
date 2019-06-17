@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.dao;
 
 import java.util.List;
@@ -13,30 +16,44 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.asa.CRP.model.Customer;
 import com.asa.CRP.model.Plan;
 
+
+/**
+ * The Class PlanDAOImpl.
+ */
 @Repository
 public class PlanDAOImpl implements PlanDAO{
 	
+	/** The logger. */
 	private Logger logger = Logger.getLogger(PlanDAOImpl.class);
 
+	/** The session factory. */
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#addPlan(com.asa.CRP.model.Plan)
+	 */
 	public void addPlan(Plan plan) {
 		Session session = sessionFactory.getCurrentSession();
 		session.persist(plan);
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#updatePlan(com.asa.CRP.model.Plan)
+	 */
 	public void updatePlan(Plan plan) {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(plan);
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#getPlanById(int)
+	 */
 	public Plan getPlanById(int id) {
 		Session session = sessionFactory.getCurrentSession();		
 		Plan plan = (Plan) session.get(Plan.class, new Integer(id));
@@ -44,6 +61,9 @@ public class PlanDAOImpl implements PlanDAO{
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#removePlan(int)
+	 */
 	public void removePlan(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		Plan plan = (Plan) session.get(Plan.class, new Integer(id));
@@ -53,12 +73,18 @@ public class PlanDAOImpl implements PlanDAO{
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#listPlan()
+	 */
 	public List<Plan> listPlan() {
 		Session session = sessionFactory.getCurrentSession();
 		List<Plan> PlanList = session.createQuery("from Plan").list();
 		return PlanList;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#getPlanByName(com.asa.CRP.model.Plan)
+	 */
 	public Plan getPlanByName(Plan givenPlan) {
 		Plan plan = new Plan();
 		System.out.println("Plan is:" + givenPlan.getPlanName());
@@ -76,6 +102,9 @@ public class PlanDAOImpl implements PlanDAO{
 		return plan;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.asa.CRP.dao.PlanDAO#listPlanByAmount(com.asa.CRP.model.Plan)
+	 */
 	public List<Plan> listPlanByAmount(Plan givenPlan) {
 		
 		EntityManager entityManager = sessionFactory.createEntityManager();

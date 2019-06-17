@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 
@@ -16,35 +19,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
-import com.asa.CRP.model.Customer;
-import com.asa.CRP.model.Plan;
 import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.CustomerRepresentativeService;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.TicketService;
 
 
+
+/**
+ * The Class TicketDetailsController.
+ */
 @Controller
 public class TicketDetailsController {
 	
-	    @Autowired
+	    /** The ticket service. */
+    	@Autowired
      	private TicketService ticketService;
 	    
-	    @Autowired
+	    /** The customer service. */
+    	@Autowired
 	    private CustomerService customerService;
 	    
 
-	    @Autowired
+	    /** The customer representative service. */
+    	@Autowired
 	    private CustomerRepresentativeService customerRepresentativeService;
 	
-	    private static final Logger log = Logger.getLogger(TicketDetailsController.class);	
-		/**
-		 * Properties file loader
-		 */
+	    /** The Constant log. */
+    	private static final Logger log = Logger.getLogger(TicketDetailsController.class);	
+		
+		/** Properties file loader. */
 		protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
 		/**
-		 * Property	
+		 * Property.
+		 *
+		 * @param ticketId the ticket id
+		 * @param model the model
+		 * @param httpSession the http session
+		 * @return the string
 		 */
 		
 		@RequestMapping(value="/ticketdetails/{ticketId}", method=RequestMethod.GET)
@@ -65,6 +78,15 @@ public class TicketDetailsController {
 			}
 		}
 		
+		/**
+		 * Edits the comment.
+		 *
+		 * @param ticketId the ticket id
+		 * @param reqParam the req param
+		 * @param model the model
+		 * @param httpSession the http session
+		 * @return the string
+		 */
 		@RequestMapping(value="/updateticketcomment/{ticketId}", method=RequestMethod.GET)
 		public String editComment(@PathVariable int ticketId,@RequestParam Map<String,String> reqParam, ModelMap model,HttpSession httpSession) {
 			if(Utils.validateCRSession(httpSession)) {

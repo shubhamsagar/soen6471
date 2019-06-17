@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.asa.CRP.controller;
 
 import java.util.Map;
@@ -15,36 +18,54 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asa.CRP.commons.CRRoles;
 import com.asa.CRP.commons.PropertiesFileLoader;
-import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.CustomerRepresentative;
 import com.asa.CRP.service.CustomerRepresentativeService;
 import com.asa.CRP.service.TicketService;
 
+
+/**
+ * The Class LoginController.
+ */
 @Controller
 public class LoginController {
 	
+	/** The logger. */
 	private Logger logger = Logger.getLogger(LoginController.class);
 	
+	/** The customer representative service. */
 	@Autowired
 	private CustomerRepresentativeService customerRepresentativeService;
+	
+	/** The ticket service. */
 	@Autowired
 	private TicketService ticketService;
-	/**
-	 * Properties file loader
-	 */
+	
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	
+	/**
+	 * Login.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
 		return "login";
 	}
 	
+	/**
+	 * Login CR.
+	 *
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param map the map
+	 * @return the string
+	 */
 	@RequestMapping(value = "/customerRepresentativeLoginCheck", method = RequestMethod.POST)
 	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap map) {	
 		CustomerRepresentative cr=new CustomerRepresentative();

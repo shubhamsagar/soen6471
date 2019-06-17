@@ -19,32 +19,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Plan;
-import com.asa.CRP.service.AdminService;
+import com.asa.CRP.service.PlanService;
 
 /**
+ * The Class AddPlanController.
+ *
  * @author Chirag Vora
  * @version 1.0
- *
  */
 
 @Controller
 public class AddPlanController {
 
+	/** The logger. */
 	private Logger logger = Logger.getLogger(AddPlanController.class);
 	
+	/** The plan service. */
 	@Autowired
-	private AdminService adminService;
+	private PlanService planService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 
+	/**
+	 * Adds the plan.
+	 *
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/addplan", method = RequestMethod.GET)
 	public String addPlan( HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){	
@@ -55,6 +61,14 @@ public class AddPlanController {
 		}
 	}
 	
+	/**
+	 * Creates the plan.
+	 *
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/addPlanConfirmation", method = RequestMethod.GET)
 	public String createPlan(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
@@ -64,7 +78,7 @@ public class AddPlanController {
 			plan.setPlanType(reqPar.get("planType"));
 			plan.setPlanDuration(reqPar.get("duration"));
 			plan.setPlanAmount(Integer.valueOf(reqPar.get("amount")));
-			adminService.addPlans(plan);
+			planService.addPlan(plan);
 			return "adminmain";
 		} else {
 			return "unauthorized";

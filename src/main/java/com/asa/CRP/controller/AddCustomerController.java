@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.asa.CRP.controller;
 
@@ -22,27 +25,38 @@ import com.asa.CRP.model.Plan;
 import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.PlanService;
 
+/**
+ * The Class AddCustomerController.
+ * @author Shivani Panwar
+ * @version 1.0
+ */
 @Controller
 public class AddCustomerController {
 
+/** The logger. */
 private Logger logger = Logger.getLogger(AddCustomerController.class);
 	
+	/** The customer service. */
 	@Autowired
 	private CustomerService customerService;
 	
+	/** The plan service. */
 	@Autowired
 	private PlanService planService;
 	
-	/**
-	 * Properties file loader
-	 */
+	/** Properties file loader. */
 	protected PropertiesFileLoader propertiesLoader = PropertiesFileLoader.getInstance();
 
-	/**
-	 * Property	
-	 */
+	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	/**
+	 * Adds the cust.
+	 *
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/addcustomer", method = RequestMethod.GET)
 	public String addCust( HttpSession httpSession,ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
@@ -55,6 +69,14 @@ private Logger logger = Logger.getLogger(AddCustomerController.class);
 		}
 	}
 
+	/**
+	 * Adds the customer.
+	 *
+	 * @param reqPar the req par
+	 * @param httpSession the http session
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/addcustomerconfirmation", method = RequestMethod.GET)
 	public String addCustomer(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
