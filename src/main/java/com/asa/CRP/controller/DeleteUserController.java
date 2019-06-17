@@ -45,8 +45,12 @@ public class DeleteUserController {
 
 
 	@RequestMapping(value = "/deleteuser", method = RequestMethod.GET)
-	public String deleteUser(ModelMap model) {
+	public String deleteUser(ModelMap model,HttpSession httpSession) {
+		if(Utils.validateCRSession(httpSession)){			
 		return "deleteUser";
+		}else {
+			return "unauthorized";
+		}
 	}
 	
 	@RequestMapping(value = "/deleteUserConfirmation", method = RequestMethod.GET)

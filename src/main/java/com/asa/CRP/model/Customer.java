@@ -32,7 +32,7 @@ public class Customer implements Serializable{
 	
 	/** The phone number. */
 	@Column(name="Phone", length=10, unique = true)
-	private int phoneNumber;
+	private long phoneNumber;
 	
 	/** The cust first name. */
 	@Column(name="First_Name", length = 50)
@@ -81,7 +81,7 @@ public class Customer implements Serializable{
 	 *
 	 * @return the phoneNumber
 	 */
-	public int getPhoneNumber() {
+	public long getPhoneNumber() {
 		return phoneNumber;
 	}
 
@@ -90,7 +90,7 @@ public class Customer implements Serializable{
 	 *
 	 * @param phoneNumber the phoneNumber to set
 	 */
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 

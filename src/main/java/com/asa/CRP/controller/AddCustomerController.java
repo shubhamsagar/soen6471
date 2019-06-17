@@ -44,10 +44,15 @@ private Logger logger = Logger.getLogger(AddCustomerController.class);
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	@RequestMapping(value = "/addcustomer", method = RequestMethod.GET)
-	public String addCust(ModelMap model) {
+	public String addCust( HttpSession httpSession,ModelMap model) {
+		if(Utils.validateCRSession(httpSession)){
 		List<Plan> list = planService.listPlan();
 		model.addAttribute("planList", list);
 		return "addcustomer";
+		}
+		else {
+			return "unauthorized";
+		}
 	}
 
 	@RequestMapping(value = "/addcustomerconfirmation", method = RequestMethod.GET)
@@ -66,8 +71,9 @@ private Logger logger = Logger.getLogger(AddCustomerController.class);
 			customer.setCustLastName(reqPar.get("lastname"));
 			customer.setCustPlan(plan.getPlanID());
 			
-			if(Utils.isNumber(reqPar.get("phoneno"))==true && reqPar.get("phoneno")!=null && reqPar.get("phoneno").length()==10) {
-			customer.setPhoneNumber(Integer.valueOf(reqPar.get("phoneno")));
+			if(reqPar.get("phoneno")!=null && reqPar.get("phoneno").length()==10) {
+				logger.info("phone number: " + reqPar.get("phoneno"));
+				customer.setPhoneNumber(Long.parseLong(reqPar.get("phoneno")));
 			}
 			else {
 				model.addAttribute("InvalidNumber", "Enter a valid number");

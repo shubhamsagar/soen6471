@@ -46,8 +46,12 @@ public class CreateUserController {
 	protected Properties property = propertiesLoader.getMiscProperties();
 
 	@RequestMapping(value = "/createuser", method = RequestMethod.GET)
-	public String createUser(ModelMap model) {
+	public String createUser(ModelMap model,HttpSession httpSession) {
+		if(Utils.validateCRSession(httpSession)){
 		return "createUser";
+		}else {
+			return "unauthorized";
+			}
 	}
 
 	@RequestMapping(value = "/createCustomerRepresentative", method = RequestMethod.GET)

@@ -42,11 +42,15 @@ private Logger logger = Logger.getLogger(UpdatePlanController.class);
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	@RequestMapping(value = "/updateplan/{customerID}", method = RequestMethod.GET)
-	public String login(@PathVariable int customerID, ModelMap model) {
-		model.addAttribute("customer", customerID);
+	public String login(@PathVariable int customerID, ModelMap model, HttpSession httpSession) {
+		if(Utils.validateCRSession(httpSession)) {
+			model.addAttribute("customer", customerID);
 		List<Plan> list = planService.listPlan();
 		model.addAttribute("exploreplans", list);
 		return "updateplan";
+		}else {
+			return "unauthorized";
+		}
 	}
 	
 	@RequestMapping(value = "/selectupdateplan/{planID}", method = RequestMethod.GET)

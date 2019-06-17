@@ -46,8 +46,13 @@ public class AddPlanController {
 	protected Properties property = propertiesLoader.getMiscProperties();
 
 	@RequestMapping(value = "/addplan", method = RequestMethod.GET)
-	public String addPlan(ModelMap model) {
+	public String addPlan( HttpSession httpSession, ModelMap model) {
+		if(Utils.validateCRSession(httpSession)){	
 		return "addPlans";
+		}
+		else {
+			return "unauthorized";
+		}
 	}
 	
 	@RequestMapping(value = "/addPlanConfirmation", method = RequestMethod.GET)

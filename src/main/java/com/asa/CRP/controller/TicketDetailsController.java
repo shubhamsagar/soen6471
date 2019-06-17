@@ -37,7 +37,7 @@ public class TicketDetailsController {
 	    @Autowired
 	    private CustomerRepresentativeService customerRepresentativeService;
 	
-	    private static final Logger log = Logger.getLogger(CustomerRepresentativeController.class);	
+	    private static final Logger log = Logger.getLogger(TicketDetailsController.class);	
 		/**
 		 * Properties file loader
 		 */
@@ -48,8 +48,9 @@ public class TicketDetailsController {
 		 */
 		
 		@RequestMapping(value="/ticketdetails/{ticketId}", method=RequestMethod.GET)
-		public String list(@PathVariable int ticketId, ModelMap model) {
-			Ticket tkt=ticketService.getTicketById(ticketId);
+		public String list(@PathVariable int ticketId, ModelMap model,HttpSession httpSession) {
+			if(Utils.validateCRSession(httpSession)) {
+				Ticket tkt=ticketService.getTicketById(ticketId);
 			model.addAttribute("ticketId",tkt.getTicketId());
 			model.addAttribute("raisedBy",customerRepresentativeService.getCustomerRepresentativeById(tkt.getRaisedBy()).getCrFirstName()+" "+customerRepresentativeService.getCustomerRepresentativeById(tkt.getRaisedBy()).getCrLastName());
 			model.addAttribute("raisedFor",customerService.getCustomerById(tkt.getRaisedBy()).getCustFirstName()+" "+customerService.getCustomerById(tkt.getRaisedBy()).getCustLastName());
@@ -57,16 +58,24 @@ public class TicketDetailsController {
 			model.addAttribute("comments",tkt.getComments());
 			model.addAttribute("status",tkt.getStatus());
 			return "ticketdetails";
-			
+			}
+			else {
+				return "login";
+			}
 		}
 		
 		@RequestMapping(value="/updateticketcomment/{ticketId}", method=RequestMethod.GET)
-		public String editComment(@PathVariable int ticketId,@RequestParam Map<String,String> reqParam, ModelMap model) {
-			Ticket tkt=ticketService.getTicketById(ticketId);
+		public String editComment(@PathVariable int ticketId,@RequestParam Map<String,String> reqParam, ModelMap model,HttpSession httpSession) {
+			if(Utils.validateCRSession(httpSession)) {
+				Ticket tkt=ticketService.getTicketById(ticketId);
 			tkt.setComments(reqParam.get("comments"));
 			tkt.setStatus(reqParam.get("status"));
 			ticketService.updateTicket(tkt);
 			return "technicianmain";
+			}
+			else {
+				return "login";
+			}
 			
 		}
 				

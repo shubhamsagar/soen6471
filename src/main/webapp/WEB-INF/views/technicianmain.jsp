@@ -1,10 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.asa.CRP.commons.SearchBy"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%
-	pageContext.setAttribute("searchParameters", SearchBy.values());
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,11 +31,6 @@ input[type=submit] {
 <body>
 	<table>
 		<tr>
-			<th>
-				<form action="/CustomerRepresentativePortal/backtomain" method="get">
-					<input type="submit" value="Main Page">
-				</form>
-			</th>
 			<th>
 				<form action="/CustomerRepresentativePortal/logout" method="get">
 					<input type="submit" value="Logout">
