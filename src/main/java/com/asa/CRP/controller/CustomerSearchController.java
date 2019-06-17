@@ -40,9 +40,14 @@ public class CustomerSearchController {
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	@RequestMapping(value = "/customersearch", method = RequestMethod.GET)
-	public String login(ModelMap model) {
-		
+	public String login(ModelMap model,HttpSession httpSession) {
+		if(Utils.validateCRSession(httpSession)){
+				
 		return "customersearch";
+		}
+		else {
+			return "unauthorized";
+			}
 	}
 
 	

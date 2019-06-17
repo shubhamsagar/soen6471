@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,28 +44,15 @@ public class RaiseTicketController {
 	 */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
-	@RequestMapping(value = "/raiseTicket", method = RequestMethod.POST)
-	public String getRaiseTicketView(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
+	@RequestMapping(value = "/raiseTicket/{customerId}", method = RequestMethod.POST)
+	public String getRaiseTicketView(@PathVariable int customerId, @RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
-			Customer customer = null;
-			if(model.containsAttribute("customer")){
-				try {
-					customer = (Customer)model.get("customer");
-				} catch (RuntimeException e) {
-					logger.error("EXception occuerd while finding Customer in model" + e.getMessage());
-				}
-			}
-			if(reqPar.containsKey("customerID")){
-				if(customer == null){
-					customer = customerService.getCustomerById(Integer.valueOf(reqPar.get("customerID")));
-					System.out.println("id found " + customer.getCustId());
-				}
-				System.out.println("id in request " + Integer.valueOf(reqPar.get("customerID")));
-				if(customer.getCustId() == Integer.valueOf(reqPar.get("customerID"))) {
+			Customer customer = customerService.getCustomerById(customerId);
+				System.out.println("id in request " + customerId);
+				if(customer.getCustId() == customerId) {
 					model.addAttribute("customer", customer);
 					return "RaiseTicket";
 				}
-			} 
 			model.addAttribute("NoUserFoundInREQUEST", 1);
 			return "customer";
 		} else {
@@ -72,23 +60,18 @@ public class RaiseTicketController {
 		}
 	}
 	
-	@RequestMapping(value = "/raiseNewTicket", method = RequestMethod.POST)
-	public String raiseTicket(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
+	@RequestMapping(value = "/raiseNewTicket/{custId}", method = RequestMethod.POST)
+	public String raiseTicket(@PathVariable int custId, @RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
-			if(reqPar.containsKey("customerID") && reqPar.containsKey("issue")){
+			if(reqPar.containsKey("issue")){
 				Ticket t = ticketService.createTicket(
-						new Ticket(new Date(System.currentTimeMillis()), reqPar.get("issue"), (Integer)httpSession.getAttribute("crId"), Integer.valueOf(reqPar.get("customerID")), TicketStatus.NEW.getDbName()));
+						new Ticket(new Date(System.currentTimeMillis()), reqPar.get("issue"), (Integer)httpSession.getAttribute("crId"), custId, TicketStatus.NEW.getDbName()));
 				model.addAttribute("ticket", t);
 				return "crmain";
 			}
-			return "error";
+			return "RaiseTicket";
 		} else {
 			return "unauthorized";
 		}
-	}
-	
-	
-
-		
-	
+	}	
 }

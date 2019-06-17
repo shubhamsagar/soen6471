@@ -55,7 +55,7 @@ input[type=submit] {
 	<br>
 	<br>
 	<center>
-		<form action="customersearch" method="post">
+		<form action="/CustomerRepresentativePortal/customersearch" method="post">
 			<label for="searchby">SearchBy :</label> <select name="searchBy"
 				id="searchBy">
 				<c:forEach var="searchParameters" items="${searchParameters}">

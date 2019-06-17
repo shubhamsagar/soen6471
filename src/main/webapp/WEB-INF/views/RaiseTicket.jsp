@@ -55,18 +55,20 @@ textarea {
 	<hr>
 	<br>
 	<br>
+	<form action="/CustomerRepresentativePortal/raiseNewTicket/${customer.custId}"  method="post">
 	<center>
 		<table>
-			<tr>
-				<th>
-					<form action="raiseNewTicket" method="post">Issue:
-				</th>
-				<th><textarea name="hidden" name="customerID"
-						value="${customer.custId}" required></textarea></th>
-			</tr>
-		</table>
-		<br> <input type="submit" value="Submit Ticket">
-		</form>
+				<tr>
+					<th>Issue </th>
+					<td><input type="text" name="issue" size=30><font
+						color="red" required></font></td>
+				</tr>
+				<tr>
+					
+					<td><input type="submit" name="operation" value="Submit" ></td>
+				</tr>
+				
+			</table></center></form>
 		<br>
 
 	</center>

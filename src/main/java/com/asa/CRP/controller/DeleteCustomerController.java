@@ -39,12 +39,18 @@ public class DeleteCustomerController {
 	
 	
 	@RequestMapping(value = "/deletecustomer", method = RequestMethod.GET)
-	public String searhCustomer(ModelMap model) {
+	public String searhCustomer(ModelMap model,HttpSession httpSession) {
+		if(Utils.validateCRSession(httpSession)){
 		return "deletecustomer";
+		}else {
+			return "unauthorized";
+		}
 	}
 	
 	@RequestMapping(value = "/searchdeletecustomer", method = RequestMethod.POST)
-	public String findCustomer(@RequestParam Map<String,String> reqPar, ModelMap model) {
+	public String findCustomer(@RequestParam Map<String,String> reqPar, ModelMap model,HttpSession httpSession) {
+		if(Utils.validateCRSession(httpSession)){
+			
 		if(reqPar.get("phoneno").length()==10) {
 		List<Customer> cust=customerService.searchCustomer(SearchBy.PHONE.getDbName(),reqPar.get("phoneno"));
 		if(cust!=null) {
@@ -59,8 +65,11 @@ public class DeleteCustomerController {
 		model.addAttribute("InvalidNumber", "Enter a valid number");
 		}
 		  return "deletecustomer";
+		}else {
+			return "unauthorized";
+		}
 	}
-	
+
 	@RequestMapping(value = "/deletecustomerconfirmation/{customerID}", method = RequestMethod.GET)
 	public ModelAndView deleteCustomer(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){

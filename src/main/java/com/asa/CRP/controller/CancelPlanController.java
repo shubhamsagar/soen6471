@@ -37,10 +37,15 @@ public class CancelPlanController {
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
 	@RequestMapping(value = "/cancelplan/{customerID}", method = RequestMethod.GET)
-	public String login(@PathVariable int customerID, ModelMap model) {
+	public String login(@PathVariable int customerID,HttpSession httpSession, ModelMap model) {
+		if(Utils.validateCRSession(httpSession)){
 		Customer customer = customerService.getCustomerById(customerID);
 		model.addAttribute("customer", customer);
 		return "cancelplan";
+		}
+		else {
+			return "unauthorized";
+			}
 	}
 	
 

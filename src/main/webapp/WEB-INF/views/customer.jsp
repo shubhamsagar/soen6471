@@ -93,10 +93,9 @@ input[type=submit] {
 		<table>
 			<tr>
 				<th>
-					<form action="/CustomerRepresentativePortal/raiseTicket"
+					<form action="/CustomerRepresentativePortal/raiseTicket/${customer.custId}"
 						method="post">
-						<input type="text" name="customerID" value="${customer.custId}"
-							hidden> <input type="submit" value="Raise Ticket">
+						<input type="submit" value="Raise Ticket">
 					</form>
 				</th>
 				<th>
@@ -131,13 +130,6 @@ input[type=submit] {
 			</tr>
 		</table>
 		<br>
-
-
-
-
-		<c:if test="${not empty NoUserFoundInREQUEST}">
-			<p>No customer found while raising request please relogin</p>
-		</c:if>
 	</center>
 	<hr>
 </body>

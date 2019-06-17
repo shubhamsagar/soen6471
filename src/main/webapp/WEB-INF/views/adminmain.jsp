@@ -31,11 +31,6 @@ input[type=submit] {
 	<table>
 		<tr>
 			<th>
-				<form action="/CustomerRepresentativePortal/backtomain" method="get">
-					<input type="submit" value="Main Page">
-				</form>
-			</th>
-			<th>
 				<form action="/CustomerRepresentativePortal/logout" method="get">
 					<input type="submit" value="Logout">
 				</form>

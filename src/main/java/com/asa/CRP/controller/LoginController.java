@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asa.CRP.commons.CRRoles;
 import com.asa.CRP.commons.PropertiesFileLoader;
+import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.CustomerRepresentative;
 import com.asa.CRP.service.CustomerRepresentativeService;
 import com.asa.CRP.service.TicketService;
@@ -45,8 +46,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/customerRepresentativeLoginCheck", method = RequestMethod.POST)
-	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap map) {
-		
+	public String loginCR(@RequestParam Map<String,String> reqPar, HttpSession httpSession, ModelMap map) {	
 		CustomerRepresentative cr=new CustomerRepresentative();
 		cr.setCrUserName(reqPar.get("login"));
 		cr.setCrPassword(reqPar.get("password"));
