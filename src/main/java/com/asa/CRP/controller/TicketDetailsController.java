@@ -51,9 +51,10 @@ public class TicketDetailsController {
 		public String list(@PathVariable int ticketId, ModelMap model,HttpSession httpSession) {
 			if(Utils.validateCRSession(httpSession)) {
 				Ticket tkt=ticketService.getTicketById(ticketId);
+			log.info("ticketdetail"+tkt.toString());
 			model.addAttribute("ticketId",tkt.getTicketId());
 			model.addAttribute("raisedBy",customerRepresentativeService.getCustomerRepresentativeById(tkt.getRaisedBy()).getCrFirstName()+" "+customerRepresentativeService.getCustomerRepresentativeById(tkt.getRaisedBy()).getCrLastName());
-			model.addAttribute("raisedFor",customerService.getCustomerById(tkt.getRaisedBy()).getCustFirstName()+" "+customerService.getCustomerById(tkt.getRaisedBy()).getCustLastName());
+			model.addAttribute("raisedFor",customerService.getCustomerById(tkt.getRaisedFor()).getCustFirstName()+" "+customerService.getCustomerById(tkt.getRaisedFor()).getCustLastName());
 			model.addAttribute("issue",tkt.getIssue());
 			model.addAttribute("comments",tkt.getComments());
 			model.addAttribute("status",tkt.getStatus());

@@ -17,9 +17,7 @@ import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.SearchBy;
 import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
-import com.asa.CRP.model.Plan;
 import com.asa.CRP.service.CustomerService;
-import com.asa.CRP.service.PlanService;
 
 @Controller
 public class CustomerSearchController {
@@ -27,8 +25,6 @@ public class CustomerSearchController {
 	@Autowired
 	private CustomerService customerService;
 	
-	@Autowired
-	private PlanService planService;
 	/**
 	 * Properties file loader
 	 */
@@ -57,6 +53,10 @@ public class CustomerSearchController {
 		if(Utils.validateCRSession(httpSession)){
 			
 		if(reqPar.get("searchBy").equals(String.valueOf(SearchBy.PHONE)) && Utils.isNumber(reqPar.get("SearchText"))==false) {
+			model.addAttribute("InvalidNumber","Enter a valid number");
+			return "customersearch";
+		}
+		if(reqPar.get("searchBy").equals(String.valueOf(SearchBy.ID)) && Utils.isNumber(reqPar.get("SearchText"))==false) {
 			model.addAttribute("InvalidNumber","Enter a valid number");
 			return "customersearch";
 		}

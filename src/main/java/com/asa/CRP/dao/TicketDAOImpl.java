@@ -42,7 +42,6 @@ public class TicketDAOImpl implements TicketDAO{
 		return tkt;
 	}
 
-	
 	public void removeTicket(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		Ticket tkt = (Ticket) session.get(Ticket.class, new Integer(id));
@@ -50,9 +49,9 @@ public class TicketDAOImpl implements TicketDAO{
 			session.delete(tkt);
 		}
 	}
+	
 
 	@SuppressWarnings("deprecation")
-	@Override
 	public List<Ticket> listTicket() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
@@ -60,7 +59,7 @@ public class TicketDAOImpl implements TicketDAO{
 		return TicketList;
 	}
 
-	@Override
+	
 	public boolean checkStatus(Ticket givenTkt) {
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -78,7 +77,7 @@ public class TicketDAOImpl implements TicketDAO{
 		return false;
 	}
 
-	@Override
+	
 	public List<Ticket> getTickectsRaisedByCustomer(Customer givenCustomer) {
 		EntityManager entityManager = sessionFactory.createEntityManager();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
