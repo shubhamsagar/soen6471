@@ -19,13 +19,18 @@ import com.asa.CRP.commons.PropertiesFileLoader;
 import com.asa.CRP.commons.SearchBy;
 import com.asa.CRP.commons.Utils;
 import com.asa.CRP.model.Customer;
+import com.asa.CRP.model.Ticket;
 import com.asa.CRP.service.CustomerService;
+import com.asa.CRP.service.TicketService;
 
 @Controller
 public class DeleteCustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private TicketService ticketService;
 	
 	/**
 	 * Properties file loader
@@ -73,7 +78,13 @@ public class DeleteCustomerController {
 	@RequestMapping(value = "/deletecustomerconfirmation/{customerID}", method = RequestMethod.GET)
 	public ModelAndView deleteCustomer(@PathVariable int customerID, HttpSession httpSession, ModelMap model) {
 		if(Utils.validateCRSession(httpSession)){
+			Customer cust= customerService.getCustomerById(customerID);
+			List<Ticket> tickList= ticketService.getTickectsRaisedByCustomer(cust);
+			for(int i=0;i<tickList.size();i++){
+					ticketService.removeTicket(tickList.get(i).getTicketId());
+				}
 		customerService.removeCustomer(customerID);
+		
 	  return new ModelAndView("redirect:/crmain");
 		//return "crmain";  
 		}else {
