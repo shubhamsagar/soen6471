@@ -48,7 +48,7 @@ private Logger logger = Logger.getLogger(ViewUserTicketsRaised.class);
 	protected Properties property = propertiesLoader.getMiscProperties();
 		
 	/**
-	 * List C rs.
+	 * List Crs.
 	 *
 	 * @param customerID the customer ID
 	 * @param model the model
