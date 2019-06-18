@@ -13,13 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.asa.CRP.commons.PropertiesFileLoader;
-import com.asa.CRP.commons.Utils;
-import com.asa.CRP.model.Customer;
-import com.asa.CRP.model.Plan;
 import com.asa.CRP.model.Ticket;
-import com.asa.CRP.service.CustomerService;
 import com.asa.CRP.service.TicketService;
 
 
