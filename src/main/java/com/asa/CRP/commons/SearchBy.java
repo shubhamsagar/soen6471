@@ -4,30 +4,36 @@
 package com.asa.CRP.commons;
 
 /**
- * The Enum CRRoles.
+ * The Enum SearchBy.
  * @author Shivani Panwar
  * @version 1.0
  */
-public enum CRRoles {
+public enum SearchBy {
+
+	/** The firstname. */
+	FIRSTNAME("custFirstName"),
 	
-	/** The customer representative. */
-	CUSTOMER_REPRESENTATIVE("Customer Representative"),
+	/** The lastname. */
+	LASTNAME("custLastName"),
 	
-	/** The admin. */
-	ADMIN("Admin"),
+	/** The phone. */
+	PHONE("phoneNumber"),
 	
-	/** The technician. */
-	TECHNICIAN("Technician");
+	/** The email. */
+	EMAIL("custEmail"),
+	
+	/** The id. */
+	ID("custId");
 	
 	/** The dbname. */
 	private final String dbname;
 	
 	/**
-	 * Instantiates a new CR roles.
+	 * Instantiates a new search by.
 	 *
 	 * @param dbname the dbname
 	 */
-	private CRRoles(String dbname){
+	private SearchBy(String dbname){
 		this.dbname = dbname;
 	}
 	
@@ -39,4 +45,5 @@ public enum CRRoles {
 	public String getDbName(){
 		return dbname;
 	}
+	
 }

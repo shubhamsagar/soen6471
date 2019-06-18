@@ -3,31 +3,35 @@
  */
 package com.asa.CRP.commons;
 
+// TODO: Auto-generated Javadoc
 /**
- * The Enum CRRoles.
+ * The Enum TicketStatus.
  * @author Shivani Panwar
  * @version 1.0
  */
-public enum CRRoles {
+public enum TicketStatus {
 	
-	/** The customer representative. */
-	CUSTOMER_REPRESENTATIVE("Customer Representative"),
+	/** The new. */
+	NEW("New"),
 	
-	/** The admin. */
-	ADMIN("Admin"),
+	/** The in progress. */
+	IN_PROGRESS("In Progress"),
 	
-	/** The technician. */
-	TECHNICIAN("Technician");
+	/** The closed. */
+	CLOSED("Closed"),
+	
+	/** The rejected. */
+	REJECTED("Rejected");
 	
 	/** The dbname. */
 	private final String dbname;
 	
 	/**
-	 * Instantiates a new CR roles.
+	 * Instantiates a new ticket status.
 	 *
 	 * @param dbname the dbname
 	 */
-	private CRRoles(String dbname){
+	private TicketStatus(String dbname){
 		this.dbname = dbname;
 	}
 	
@@ -39,4 +43,5 @@ public enum CRRoles {
 	public String getDbName(){
 		return dbname;
 	}
+
 }
