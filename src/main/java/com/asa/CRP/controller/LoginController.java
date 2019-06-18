@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.asa.CRP.commons.CRRoles;
 import com.asa.CRP.commons.PropertiesFileLoader;
@@ -46,6 +47,18 @@ public class LoginController {
 	/** Property. */
 	protected Properties property = propertiesLoader.getMiscProperties();
 	
+	
+
+	/**
+	 * Login.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView Main(ModelMap model) {
+		return new ModelAndView("redirect:/login");
+	}
 	
 	/**
 	 * Login.
